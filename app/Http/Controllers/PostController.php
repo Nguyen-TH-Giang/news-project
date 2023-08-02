@@ -11,4 +11,9 @@ class PostController extends Controller
     {
         return view('news.posts.index');
     }
+
+    public function show(Post $post)
+    {
+        return view('news.posts.show');
+    }
 }

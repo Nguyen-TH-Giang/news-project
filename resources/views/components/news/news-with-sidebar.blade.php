@@ -2,7 +2,7 @@
 <div class="container-fluid py-3">
     <div class="container">
         <div class="row">
-            <x-news.news-container />
+            {{ $slot }}
 
             <div class="col-lg-4 pt-3 pt-lg-0">
                 <!-- Social Follow Start -->
