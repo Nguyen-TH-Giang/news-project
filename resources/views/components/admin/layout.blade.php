@@ -45,7 +45,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/admin" class="logo d-flex align-items-center">
                 <img src="backend/img/logo.png" alt="">
                 <span class="d-none d-lg-block">NiceAdmin</span>
             </a>
@@ -64,7 +64,7 @@
 
                 <!-- Don't put this search on dashboard -->
                 <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                    <a class="nav-link nav-icon search-bar-toggle " href="javascript:void(0)">
                         <i class="bi bi-search"></i>
                     </a>
                 </li><!-- End Search Icon-->
@@ -72,7 +72,7 @@
 
                 <li class="nav-item dropdown pe-3">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)"
                         data-bs-toggle="dropdown">
                         <img src="backend/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
@@ -88,7 +88,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
                                 <i class="bi bi-person"></i>
                                 <span>My Profile</span>
                             </a>
@@ -98,7 +98,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -118,7 +118,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="index.html">
+                <a class="nav-link " href="/admin">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -134,42 +134,42 @@
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-list-stars"></i>
                     <span>Categories</span>
                 </a>
             </li><!-- End F.A.Q Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-tags"></i>
                     <span>Tags</span>
                 </a>
             </li><!-- End Contact Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-megaphone"></i>
                     <span>Banner ads</span>
                 </a>
             </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-envelope"></i>
                     <span>Contacts</span>
                 </a>
             </li><!-- End Login Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-people"></i>
                     <span>General information</span>
                 </a>
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
+                <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-mailbox"></i>
                     <span>Newsletter subscriptions</span>
                 </a>
@@ -195,7 +195,7 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    <a href="javascript:void(0)" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->

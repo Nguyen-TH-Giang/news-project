@@ -5,7 +5,7 @@
             <h1>Dashboard</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </nav>
@@ -30,7 +30,7 @@
                                             <i class="bi bi-file-text"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Posts</h6>
+                                            <a href="javascript:void(0)"><h6>Posts</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                             <i class="bi bi-list-stars"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Categories</h6>
+                                            <a href="javascript:void(0)"><h6>Categories</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                             <i class="bi bi-tags"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Tags</h6>
+                                            <a href="javascript:void(0)"><h6>Tags</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                             <i class="bi bi-megaphone"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Banner ads</h6>
+                                            <a href="javascript:void(0)"><h6>Banner ads</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                             <i class="bi bi-envelope"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Contacts</h6>
+                                            <a href="javascript:void(0)"><h6>Contacts</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                             <i class="bi bi-people"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>General information</h6>
+                                            <a href="javascript:void(0)"><h6>General information</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                             <i class="bi bi-mailbox"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>Newsletter subscriptions</h6>
+                                            <a href="javascript:void(0)"><h6>Newsletter subscriptions</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -164,16 +164,16 @@
                             <div class="card top-selling overflow-auto">
 
                                 <div class="filter">
-                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                    <a class="icon" href="javascript:void(0)" data-bs-toggle="dropdown"><i
                                             class="bi bi-three-dots"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                         <li class="dropdown-header text-start">
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0)">Today</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0)">This Month</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0)">This Year</a></li>
                                     </ul>
                                 </div>
 
@@ -192,51 +192,43 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <th scope="row"><a href="#"><img src="backend/img/product-1.jpg"
+                                                <th scope="row"><a href="javascript:void(0)"><img src="backend/img/product-1.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
+                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
                                                         voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td>64</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <th scope="row"><a href="#"><img src="backend/img/product-1.jpg"
+                                                <th scope="row"><a href="javascript:void(0)"><img src="backend/img/product-1.jpg"
                                                             alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
+                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
                                                         voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td>64</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <th scope="row"><a href="#"><img
+                                                <th scope="row"><a href="javascript:void(0)"><img
                                                             src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
+                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
                                                         voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td>64</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <th scope="row"><a href="#"><img
+                                                <th scope="row"><a href="javascript:void(0)"><img
                                                             src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
+                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
                                                         voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td>64</td>
                                             </tr>
                                             <tr>
                                                 <td>1</td>
-                                                <th scope="row"><a href="#"><img
+                                                <th scope="row"><a href="javascript:void(0)"><img
                                                             src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
+                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
                                                         voluptas nulla</a></td>
-                                                <td>$64</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="#"><img
-                                                            src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>$64</td>
+                                                <td>64</td>
                                             </tr>
                                         </tbody>
                                     </table>
