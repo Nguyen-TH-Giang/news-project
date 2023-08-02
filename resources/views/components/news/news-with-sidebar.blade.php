@@ -62,10 +62,7 @@
                 <!-- Newsletter End -->
 
                 <!-- Ads Start -->
-                <div class="mb-3 pb-3">
-                    <a href=""><img class="img-fluid" src="news/img/news-500x280-4.jpg"
-                            alt=""></a>
-                </div>
+                <x-news.side-banner />
                 <!-- Ads End -->
 
                 <!-- Popular News Start -->
@@ -73,71 +70,11 @@
                     <div class="bg-light py-2 px-4 mb-3">
                         <h3 class="m-0">Tranding</h3>
                     </div>
-                    <div class="d-flex mb-3">
-                        <img src="news/img/news-100x100-1.jpg"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                            style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="news/img/news-100x100-2.jpg"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                            style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="news/img/news-100x100-3.jpg"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                            style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="news/img/news-100x100-4.jpg"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                            style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="news/img/news-100x100-5.jpg"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                            style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
+                    <x-news.small-news-item />
+                    <x-news.small-news-item />
+                    <x-news.small-news-item />
+                    <x-news.small-news-item />
+                    <x-news.small-news-item />
                 </div>
                 <!-- Popular News End -->
 
