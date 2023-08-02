@@ -164,14 +164,14 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-people"></i>
-                    <span>General information</span>
+                    <span>Generals</span>
                 </a>
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="javascript:void(0)">
                     <i class="bi bi-mailbox"></i>
-                    <span>Newsletter subscriptions</span>
+                    <span>Newsletter</span>
                 </a>
             </li><!-- End Blank Page Nav -->
 

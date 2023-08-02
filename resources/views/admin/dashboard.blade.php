@@ -130,7 +130,7 @@
                                             <i class="bi bi-people"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>General information</h6></a>
+                                            <a href="javascript:void(0)"><h6>Generals</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                             <i class="bi bi-mailbox"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Newsletter subscriptions</h6></a>
+                                            <a href="javascript:void(0)"><h6>Newsletter</h6></a>
                                         </div>
                                     </div>
                                 </div>
