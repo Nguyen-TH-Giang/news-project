@@ -24,7 +24,7 @@ class CreateGeneralsTable extends Migration
             $table->string('fb_link', 100)->nullable();
             $table->string('instagram_link', 100)->nullable();
             $table->string('twitter_link', 100)->nullable();
-            $table->string('linked_in_link', 100)->nullable();
+            $table->string('linkedin_link', 100)->nullable();
             $table->string('youtube_link', 100)->nullable();
             $table->string('vimeo_link', 100)->nullable();
             $table->enum('status', ['1'])->nullable();
