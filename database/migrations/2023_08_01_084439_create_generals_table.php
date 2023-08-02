@@ -27,7 +27,6 @@ class CreateGeneralsTable extends Migration
             $table->string('linkedin_link', 100)->nullable();
             $table->string('youtube_link', 100)->nullable();
             $table->string('vimeo_link', 100)->nullable();
-            $table->enum('status', ['1'])->nullable();
             $table->timestamps();
         });
     }
