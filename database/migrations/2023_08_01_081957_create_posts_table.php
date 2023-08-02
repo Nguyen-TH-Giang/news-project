@@ -18,8 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
 
-            $table->integer('tag_id');
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->string('tag_ids');
 
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
