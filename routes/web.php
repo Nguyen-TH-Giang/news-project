@@ -18,8 +18,8 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 /** Test view */
-Route::get('admin/categories/create', function () {
-    return view('admin.categories.create');
+Route::get('admin/tags', function () {
+    return view('admin.tags.index');
 });
 /** End test view */
 
