@@ -29,6 +29,7 @@
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Status</th>
+                                                <th scope="col">Date</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -38,6 +39,7 @@
                                                 <td>Nguyen Thi Huong Giang</td>
                                                 <td>giang.test@gmail.com</td>
                                                 <td>Open</td>
+                                                <td>01/01/2023 01:01:01</td>
                                                 <td>
                                                     <a class="btn btn-success" href="javascript:void(0)"><i
                                                             class="bi bi-pencil-square"></i></a>
@@ -80,6 +82,7 @@
                                                 <td>Nguyen Giang</td>
                                                 <td>giang.test@gmail.com</td>
                                                 <td>Pending</td>
+                                                <td>01/01/2023 01:01:01</td>
                                                 <td>
                                                     <a class="btn btn-success" href="javascript:void(0)"><i
                                                             class="bi bi-pencil-square"></i></a>
