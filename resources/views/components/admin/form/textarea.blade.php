@@ -1,7 +1,8 @@
 @props(['name', 'id', 'label'])
 
 <x-admin.form.field>
-    <label for="{{ $name }}" class="col-sm-2 col-form-label">{{ ucwords($label) }}</label>
+    <x-admin.form.label :for="$name" label="{{ $label }}"/>
+    
     <div class="col-sm-10">
         <textarea class="form-control" style="height: 500px" id="{{ $id }}" name="{{ $name }}"></textarea>
     </div>

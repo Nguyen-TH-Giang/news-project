@@ -24,7 +24,8 @@
                             <x-admin.form.input name="slug" type="text" label="slug" />
 
                             <x-admin.form.field>
-                                <label class="col-sm-2 col-form-label">Category</label>
+                                <x-admin.form.label label="category"/>
+
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
@@ -33,10 +34,11 @@
                                         <option value="3">Three</option>
                                     </select>
                                 </div>
-                            </x-admin.form.field>
+                            </x-admin.form.label>
 
                             <x-admin.form.field>
-                                <label class="col-sm-2 col-form-label">Tags</label>
+                                <x-admin.form.label label="tags"/>
+
                                 <div class="col-sm-10">
                                     <select class="form-select" multiple aria-label="multiple select example">
                                         <option selected>Open this select menu</option>

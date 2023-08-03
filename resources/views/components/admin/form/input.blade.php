@@ -1,7 +1,7 @@
 @props(['name', 'type' => 'text', 'label'])
 
 <x-admin.form.field>
-    <label for="{{ $name }}" class="col-sm-2 col-form-label">{{ ucwords($label) }}</label>
+    <x-admin.form.label :for="$name" label="{{ $label }}"/>
     <div class="col-sm-10">
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" {{ $attributes(['value' => old($name)]) }}>
     </div>
