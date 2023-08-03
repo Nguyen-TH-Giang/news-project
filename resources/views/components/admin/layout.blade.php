@@ -219,6 +219,10 @@
 
     <!-- CKEditor -->
     <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
+
+    <script src="/assets/vendor/jquery/dist/jquery.js"></script>
+
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
