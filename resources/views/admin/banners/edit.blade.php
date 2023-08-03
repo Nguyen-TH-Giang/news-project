@@ -4,7 +4,7 @@
             <h1>Banner ads</h1>
             <x-admin.breadcrumb :items="[
                 ['label' => 'Banner ads'],
-                ['label' => 'Create new banner']
+                ['label' => 'Edit banner ID: 123']
             ]"/>
         </div><!-- End Page Title -->
 
@@ -21,9 +21,16 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="image" type="file" label="image" >
-                                <x-admin.required-icon />
-                            </x-admin.form.input>
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <x-admin.form.input name="thumbnail" type="file" label="thumbnail" >
+                                        <x-admin.required-icon />
+                                    </x-admin.form.input>
+                                </div>
+                                <div class="align-self-center">
+                                    <img src="/backend/img/product-1.jpg" alt="" width="100">
+                                </div>
+                            </div>
 
                             <fieldset class="row mb-3">
                                 <legend class="col-form-label col-sm-2 pt-0">Type
@@ -57,7 +64,7 @@
                             <x-admin.form.input name="date" type="date" label="Published date" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
-                            
+
                             <x-admin.form.input name="time" type="time" label="Time" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
