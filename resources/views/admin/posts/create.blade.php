@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item">Posts</li>
-                    <li class="breadcrumb-item active">Edit</li>
+                    <li class="breadcrumb-item active">Create new post</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -19,19 +19,10 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Title</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="title">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Slug</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="slug">
-                                </div>
-                            </div>
+                        <form class="needs-validation">
+                            <x-admin.form.input name="title" type="text" label="title"/>
+                            <x-admin.form.input name="slug" type="text" label="slug"/>
+
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Category</label>
                                 <div class="col-sm-10">
@@ -54,12 +45,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Thumbnail</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
+
+                            <x-admin.form.input name="thumbnail" type="file" label="thumbnail"/>
+
                             <fieldset class="row mb-3">
                                 <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                                 <div class="col-sm-10">
@@ -79,18 +67,10 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <div class="row mb-3">
-                                <label for="inputDate" class="col-sm-2 col-form-label">Published date</label>
-                                <div class="col-sm-10">
-                                    <input type="date" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-                                <div class="col-sm-10">
-                                    <input type="time" class="form-control">
-                                </div>
-                            </div>
+
+                            <x-admin.form.input name="date" type="date" label="Published date"/>
+                            <x-admin.form.input name="time" type="time" label="Time"/>
+
                             <div class="row mb-3">
                                 <legend class="col-form-label col-sm-2 pt-0">Trending</legend>
                                 <div class="col-sm-10">
@@ -99,12 +79,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Description</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
+                            <x-admin.form.input name="description" type="text" label="description"/>
+
                             <div class="row mb-3">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Content</label>
                                 <div class="col-sm-10">
