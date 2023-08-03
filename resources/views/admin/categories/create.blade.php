@@ -2,13 +2,10 @@
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Categories</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item">Categories</li>
-                    <li class="breadcrumb-item active">Create new category</li>
-                </ol>
-            </nav>
+            <x-admin.breadcrumb :items="[
+                ['label' => 'Categories'],
+                ['label' => 'Create new category']
+            ]"/>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
@@ -35,7 +32,7 @@
                                     </select>
                                 </div>
                             </x-admin.form.field>
-                            
+
                             <x-admin.form.input name="sort_order" type="number" label="sort order" />
                             <x-admin.form.checkbox name="active" legend="active" />
 

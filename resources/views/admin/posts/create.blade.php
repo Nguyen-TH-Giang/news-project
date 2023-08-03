@@ -2,13 +2,10 @@
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Posts</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Posts</li>
-                    <li class="breadcrumb-item active">Create new post</li>
-                </ol>
-            </nav>
+            <x-admin.breadcrumb :items="[
+                ['label' => 'Posts'],
+                ['label' => 'Create new post']
+            ]"/>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">

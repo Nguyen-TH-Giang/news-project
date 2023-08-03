@@ -3,12 +3,9 @@
 
         <div class="pagetitle">
             <h1>Categories</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item">Categories</li>
-                </ol>
-            </nav>
+            <x-admin.breadcrumb :items="[
+                ['label' => 'Categories'],
+            ]"/>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">

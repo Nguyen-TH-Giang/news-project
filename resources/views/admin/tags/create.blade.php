@@ -2,13 +2,10 @@
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Tags</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item">Tags</li>
-                    <li class="breadcrumb-item active">Create new tag</li>
-                </ol>
-            </nav>
+            <x-admin.breadcrumb :items="[
+                ['label' => 'Tags'],
+                ['label' => 'Create new tag']
+            ]"/>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
