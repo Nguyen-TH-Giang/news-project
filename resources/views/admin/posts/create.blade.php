@@ -20,10 +20,10 @@
 
                         <!-- General Form Elements -->
                         <form class="needs-validation">
-                            <x-admin.form.input name="title" type="text" label="title"/>
-                            <x-admin.form.input name="slug" type="text" label="slug"/>
+                            <x-admin.form.input name="title" type="text" label="title" />
+                            <x-admin.form.input name="slug" type="text" label="slug" />
 
-                            <div class="row mb-3">
+                            <x-admin.form.field>
                                 <label class="col-sm-2 col-form-label">Category</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example">
@@ -33,8 +33,9 @@
                                         <option value="3">Three</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
+                            </x-admin.form.field>
+
+                            <x-admin.form.field>
                                 <label class="col-sm-2 col-form-label">Tags</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" multiple aria-label="multiple select example">
@@ -44,23 +45,23 @@
                                         <option value="3">Three</option>
                                     </select>
                                 </div>
-                            </div>
+                            </x-admin.form.field>
 
-                            <x-admin.form.input name="thumbnail" type="file" label="thumbnail"/>
+                            <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
 
                             <fieldset class="row mb-3">
                                 <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                            value="option1" checked>
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="gridRadios1" value="option1" checked>
                                         <label class="form-check-label" for="gridRadios1">
                                             Draft
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                            value="option2">
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="gridRadios2" value="option2">
                                         <label class="form-check-label" for="gridRadios2">
                                             Published
                                         </label>
@@ -68,11 +69,11 @@
                                 </div>
                             </fieldset>
 
-                            <x-admin.form.input name="date" type="date" label="Published date"/>
-                            <x-admin.form.input name="time" type="time" label="Time"/>
-                            <x-admin.form.checkbox name="trending" legend="trending"/>
-                            <x-admin.form.input name="description" type="text" label="description"/>
-                            <x-admin.form.textarea name="content" id="editor" label="content"/>
+                            <x-admin.form.input name="date" type="date" label="Published date" />
+                            <x-admin.form.input name="time" type="time" label="Time" />
+                            <x-admin.form.checkbox name="trending" legend="trending" />
+                            <x-admin.form.input name="description" type="text" label="description" />
+                            <x-admin.form.textarea name="content" id="editor" label="content" />
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
