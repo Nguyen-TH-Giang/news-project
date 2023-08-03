@@ -70,15 +70,7 @@
 
                             <x-admin.form.input name="date" type="date" label="Published date"/>
                             <x-admin.form.input name="time" type="time" label="Time"/>
-
-                            <div class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">Trending</legend>
-                                <div class="col-sm-10">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                    </div>
-                                </div>
-                            </div>
+                            <x-admin.form.checkbox name="trending" legend="trending"/>
                             <x-admin.form.input name="description" type="text" label="description"/>
                             <x-admin.form.textarea name="content" id="editor" label="content"/>
 
