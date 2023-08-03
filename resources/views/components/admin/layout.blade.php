@@ -37,6 +37,12 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    .ck-editor__editable_inline {
+        min-height: 600px;
+    }
+  </style>
 </head>
 
 <body>
@@ -211,6 +217,8 @@
     <!-- Template Main JS File -->
     <script src="/backend/js/main.js"></script>
 
+    <!-- CKEditor -->
+    <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
 </body>
 
 </html>
