@@ -80,13 +80,8 @@
                                 </div>
                             </div>
                             <x-admin.form.input name="description" type="text" label="description"/>
+                            <x-admin.form.textarea name="content" id="editor" label="content"/>
 
-                            <div class="row mb-3">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Content</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" style="height: 500px" id="editor" name="editor"></textarea>
-                                </div>
-                            </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a class="btn btn-secondary">Cancel</a>
