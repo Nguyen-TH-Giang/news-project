@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="backend/img/favicon.png" rel="icon">
-    <link href="backend/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/backend/img/favicon.png" rel="icon">
+    <link href="/backend/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -20,16 +20,16 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="backend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="backend/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="backend/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="backend/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="backend/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="/backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/backend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/backend/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="/backend/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="/backend/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/backend/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="backend/css/style.css" rel="stylesheet">
+    <link href="/backend/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
@@ -46,7 +46,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="/admin" class="logo d-flex align-items-center">
-                <img src="backend/img/logo.png" alt="">
+                <img src="/backend/img/logo.png" alt="">
                 <span class="d-none d-lg-block">NiceAdmin</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -74,7 +74,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)"
                         data-bs-toggle="dropdown">
-                        <img src="backend/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="/backend/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -199,17 +199,17 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="backend/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="backend/vendor/chart.js/chart.umd.js"></script>
-    <script src="backend/vendor/echarts/echarts.min.js"></script>
-    <script src="backend/vendor/quill/quill.min.js"></script>
-    <script src="backend/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="backend/vendor/tinymce/tinymce.min.js"></script>
-    <script src="backend/vendor/php-email-form/validate.js"></script>
+    <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="/backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/backend/vendor/chart.js/chart.umd.js"></script>
+    <script src="/backend/vendor/echarts/echarts.min.js"></script>
+    <script src="/backend/vendor/quill/quill.min.js"></script>
+    <script src="/backend/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="/backend/vendor/tinymce/tinymce.min.js"></script>
+    <script src="/backend/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="backend/js/main.js"></script>
+    <script src="/backend/js/main.js"></script>
 
 </body>
 
