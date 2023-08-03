@@ -2,10 +2,10 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Posts</h1>
+            <h1>Categories</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item">Categories</li>
                 </ol>
             </nav>

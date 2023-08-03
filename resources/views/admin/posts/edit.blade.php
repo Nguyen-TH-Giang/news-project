@@ -83,7 +83,7 @@
                             <x-admin.form.input name="description" type="text" label="description" />
                             <x-admin.form.textarea name="content" id="editor" label="content" />
 
-                            <x-admin.form.button>Create</x-admin.form.button>
+                            <x-admin.form.button>Edit</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>
