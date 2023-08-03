@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-Route::get('admin/posts/create', function () {
-    return view('admin.posts.create');
+
+/** Test view */
+Route::get('admin/posts/edit', function () {
+    return view('admin.posts.edit');
 });
+/** End test view */
 
 Route::get('admin', function () {
     return view('admin.dashboard');
