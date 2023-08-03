@@ -16,7 +16,9 @@
                     <div class="row">
                         <!-- General Form Elements -->
                         <form class="needs-validation">
-                            <x-admin.form.input name="name" type="text" label="name" />
+                            <x-admin.form.input name="name" type="text" label="name" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
 
                             <x-admin.form.input name="sort_order" type="number" label="sort order" />
 

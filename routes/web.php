@@ -19,7 +19,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 /** Test view */
 Route::get('admin/tags/edit', function () {
-    return view('admin.tags.edit');
+    return view('admin.tags.create');
 });
 /** End test view */
 
