@@ -17,11 +17,18 @@
 
                         <!-- General Form Elements -->
                         <form class="needs-validation">
-                            <x-admin.form.input name="title" type="text" label="title" />
-                            <x-admin.form.input name="slug" type="text" label="slug" />
+                            <x-admin.form.input name="title" type="text" label="title" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
+
+                            <x-admin.form.input name="slug" type="text" label="slug" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
 
                             <x-admin.form.field>
-                                <x-admin.form.label label="category"/>
+                                <x-admin.form.label label="category">
+                                    <x-admin.required-icon />
+                                </x-admin.form.label>
 
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example">
@@ -46,10 +53,14 @@
                                 </div>
                             </x-admin.form.field>
 
-                            <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
+                            <x-admin.form.input name="thumbnail" type="file" label="thumbnail" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
 
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                                <legend class="col-form-label col-sm-2 pt-0">Status
+                                    <x-admin.required-icon />
+                                </legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gridRadios"
@@ -68,8 +79,12 @@
                                 </div>
                             </fieldset>
 
-                            <x-admin.form.input name="date" type="date" label="Published date" />
-                            <x-admin.form.input name="time" type="time" label="Time" />
+                            <x-admin.form.input name="date" type="date" label="Published date" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
+                            <x-admin.form.input name="time" type="time" label="Time" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
                             <x-admin.form.checkbox name="trending" legend="trending" />
                             <x-admin.form.input name="description" type="text" label="description" />
                             <x-admin.form.textarea name="content" id="editor" label="content" />

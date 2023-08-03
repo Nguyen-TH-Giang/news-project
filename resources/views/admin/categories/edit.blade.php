@@ -1,7 +1,7 @@
 <x-admin.layout>
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Posts</h1>
+            <h1>Categories</h1>
             <x-admin.breadcrumb :items="[
                 ['label' => 'Categories'],
                 ['label' => 'Edit category ID: 123']
@@ -17,8 +17,12 @@
 
                         <!-- General Form Elements -->
                         <form class="needs-validation">
-                            <x-admin.form.input name="name" type="text" label="name" />
-                            <x-admin.form.input name="slug" type="text" label="slug" />
+                            <x-admin.form.input name="name" type="text" label="name" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
+                            <x-admin.form.input name="slug" type="text" label="slug" >
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
 
                             <x-admin.form.field>
                                 <x-admin.form.label label="parent category" />
