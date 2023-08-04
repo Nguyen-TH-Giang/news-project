@@ -22,24 +22,22 @@
                     <p class="text-center small">Enter your email & password to login</p>
                 </div>
 
-                <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}" novalidate>
+                <form class="row g-3" method="POST" action="{{ route('login') }}">
                     @csrf
 
                     <div class="col-12">
-                        <x-label for="email" :value="__('email')" />
+                        <x-label for="email" :value="__('Email')" />
 
-                        <div class="input-group has-validation">
+                        <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" name="email" class="form-control"
-                                id="email" value="{{ old('email') }}" required>
+                            <input type="text" name="email" class="form-control" id="email" value="{{ old('email') }}">
                             <div class="invalid-feedback">Please enter your username.</div>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <x-label for="password" :value="__('Password')" />
-                        <input type="password" name="password" class="form-control"
-                            id="password" value="{{ old('password') }}" required>
+                        <input type="password" name="password" class="form-control" id="password">
                         <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
