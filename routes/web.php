@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index']);
+// Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 /** Test view */
@@ -25,11 +25,6 @@ Route::get('admin/tags/edit', function () {
 
 Route::get('admin', function () {
     return view('admin.dashboard');
-});
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
