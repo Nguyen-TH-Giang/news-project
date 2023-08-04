@@ -1,9 +1,11 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <div class="d-flex justify-content-center py-4">
+                <a href="/" class="logo d-flex align-items-center w-auto">
+                    <x-application-logo />
+                </a>
+            </div><!-- End Logo -->
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -16,23 +18,23 @@
             </div>
         @endif
 
-        <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
+        <div class="card-body">
+            <form class="row g-3 needs-validation" method="POST" action="{{ route('verification.send') }}">
                 @csrf
 
-                <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
-                    </x-button>
+                <div class="col-12">
+                    <button class="btn btn-primary w-100" type="submit">{{ __('Resend Verification Email') }}</button>
                 </div>
             </form>
+        </div>
 
+        <div class="card-body">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Log Out') }}
-                </button>
+                <div class="col-12">
+                    <button class="btn btn-primary w-100" type="submit">{{ __('Log Out') }}</button>
+                </div>
             </form>
         </div>
     </x-auth-card>
