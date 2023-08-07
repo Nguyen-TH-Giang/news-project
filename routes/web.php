@@ -31,5 +31,7 @@ Route::get('admin', function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/banner', [BannerAdController::class, 'index'])->name('admin.banner');
+Route::get('admin/banner/create', [BannerAdController::class, 'create']);
+Route::post('admin/banner', [BannerAdController::class, 'store']);
 
 

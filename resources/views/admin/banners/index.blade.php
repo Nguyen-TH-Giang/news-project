@@ -19,7 +19,7 @@
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="javascript:void(0)" class="btn btn-warning">Add new
+                                    <h5 class="card-title"><a href="/admin/banner/create" class="btn btn-warning">Add new
                                             banner</a></h5>
 
                                     <!-- Table with hoverable rows -->
