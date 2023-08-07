@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Constants;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -19,6 +20,7 @@ class BannerAdController extends Controller
 
     public function store()
     {
+
         $attributes = request()->validate([
             'title' => 'required',
             'image' => ['required', 'image'],
