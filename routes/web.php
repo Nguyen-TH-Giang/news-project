@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 /** Test view */
-Route::get('admin/tags/edit', function () {
-    return view('admin.tags.create');
+Route::get('/', function () {
+    return view('news.contact');
 });
 /** End test view */
 
@@ -28,3 +28,7 @@ Route::get('admin', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+// Route::get('admin/banner', [BannerAdController::class, 'show'])->name('admin.banner');
+
+
