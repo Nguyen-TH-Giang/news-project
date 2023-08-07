@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as Faker;
 
-class Banner_adFactory extends Factory
+class BannerAdsFactory extends Factory
 {
     /**
      * Define the model's default state.

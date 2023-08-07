@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Banner_ad;
+use App\Models\BannerAds;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\General;
-use App\Models\Newsletter_subscription;
+use App\Models\NewsletterSubscriptions;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -26,10 +26,10 @@ class DatabaseSeeder extends Seeder
             'category_id' => $categories->random()->id,
         ]);
         Tag::factory(10)->create();
-        Banner_ad::factory(10)->create();
+        BannerAds::factory(10)->create();
         Contact::factory(10)->create();
         General::factory(1)->create();
-        Newsletter_subscription::factory(10)->create();
+        NewsletterSubscriptions::factory(10)->create();
         User::factory(1)->create();
     }
 }

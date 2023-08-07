@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BannerAd extends Model
+class NewsletterSubscriptions extends Model
 {
     use HasFactory;
 }

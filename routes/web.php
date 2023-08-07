@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerAdController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 /** Test view */
-Route::get('/', function () {
+Route::get('/test', function () {
     return view('news.contact');
 });
 /** End test view */
@@ -29,6 +30,6 @@ Route::get('admin', function () {
 
 require __DIR__.'/auth.php';
 
-// Route::get('admin/banner', [BannerAdController::class, 'show'])->name('admin.banner');
+Route::get('admin/banner', [BannerAdController::class, 'index'])->name('admin.banner');
 
 
