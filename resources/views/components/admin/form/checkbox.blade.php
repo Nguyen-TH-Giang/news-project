@@ -4,7 +4,11 @@
     <legend class="col-form-label col-sm-2 pt-0">{{ ucwords($legend) }}</legend>
     <div class="col-sm-10">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="{{ $name }}">
+            <input type="hidden" name="{{ $name }}" value="{{ Constants::INACTIVE }}">
+
+            <input class="form-check-input" type="checkbox" name="{{ $name }}"
+                {{ $attributes(['value' => old($name, Constants::ACTIVE)]) }}
+                {{ $attributes['checked'] }}>
         </div>
     </div>
 </div>

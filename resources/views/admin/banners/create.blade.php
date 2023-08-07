@@ -13,13 +13,13 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/banner">
+                        <form method="POST" action="/admin/banner" enctype="multipart/form-data">
                             @csrf
                             <x-admin.form.input name="title" type="text" label="title">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="image" type="file" label="image">
+                            <x-admin.form.input name="image_url" type="file" label="image">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
@@ -30,21 +30,24 @@
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="type" id="gridRadios1"
-                                            value="1" {{ old('type') == Constants::BANNER_TOP ? 'checked' : '' }} >
+                                            value="{{ Constants::BANNER_TOP }}"
+                                            {{ old('type') == Constants::BANNER_TOP ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gridRadios1">
                                             Top banner 700x70
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="type" id="gridRadios2"
-                                            value="2" {{ old('type') == Constants::BANNER_SIDE ? 'checked' : '' }}>
+                                            value="{{ Constants::BANNER_SIDE }}"
+                                            {{ old('type') == Constants::BANNER_SIDE ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gridRadios2">
                                             Side banner 500x280
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="type" id="gridRadios2"
-                                            value="3" {{ old('type') == Constants::BANNER_CENTER ? 'checked' : '' }}>
+                                            value="{{ Constants::BANNER_CENTER }}"
+                                            {{ old('type') == Constants::BANNER_CENTER ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gridRadios2">
                                             Center banner 700x70
                                         </label>
@@ -61,7 +64,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.checkbox name="active" legend="active" />
+                            <x-admin.form.checkbox name="active" legend="active" :checked="old('active') ? true : false" />
 
                             <x-admin.form.button>Create</x-admin.form.button>
 

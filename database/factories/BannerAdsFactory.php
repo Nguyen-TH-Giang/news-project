@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Constants\Constants;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as Faker;
 
@@ -17,8 +18,8 @@ class BannerAdsFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'image_url' => 'public/banner/' . $this->faker->unique()->word() . 'png',
-            'type' => $this->faker->randomElement([0, 1, 2]),
-            'status' => $this->faker->randomElement([0, 1, 2]),
+            'type' => $this->faker->randomElement([Constants::BANNER_TOP, Constants::BANNER_SIDE, Constants::BANNER_CENTER]),
+            'status' => $this->faker->randomElement([Constants::INACTIVE, Constants::ACTIVE]),
             'published_at' => $this->randomDateTime()
         ];
     }
