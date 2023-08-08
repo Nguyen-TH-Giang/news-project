@@ -15,13 +15,13 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form class="needs-validation" method="POST" action="/admin/tags">
+                        <form method="POST" action="/admin/tags">
                             @csrf
-                            <x-admin.form.input name="name" type="text" label="name" >
+                            <x-admin.form.input name="name" type="text" label="name" :value="old('name')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="sort_order" type="text" label="sort order" />
+                            <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order')"/>
 
                             <x-admin.form.button route="{{ route('admin.tags.index') }}">Create</x-admin.form.button>
 

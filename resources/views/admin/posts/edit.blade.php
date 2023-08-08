@@ -16,7 +16,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form class="needs-validation">
+                        <form>
                             <x-admin.form.input name="title" type="text" label="title" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
