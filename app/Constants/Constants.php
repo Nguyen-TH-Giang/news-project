@@ -11,6 +11,6 @@ class Constants {
     const INACTIVE = 0;
     const ACTIVE = 1;
     const DELETED = 2;
-    
+
     const BANNER_PLACEHOLDER = '/backend/img/banner-placeholder.jpg';
 }
