@@ -5,6 +5,16 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* Table */
+.dashboard .table .w-10p {
+    width: 10%;
+}
+.dashboard .table .w-15p {
+    width: 15%;
+}
+.dashboard .table .w-5p {
+    width: 5%;
+}
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/

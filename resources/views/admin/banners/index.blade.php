@@ -3,9 +3,7 @@
 
         <div class="pagetitle">
             <h1>Banner ads</h1>
-            <x-admin.breadcrumb :items="[
-                ['label' => 'Banner ads'],
-            ]"/>
+            <x-admin.breadcrumb :items="[['label' => 'Banner ads']]" />
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
@@ -19,104 +17,78 @@
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="javascript:void(0)" class="btn btn-warning">Add new
-                                            banner</a></h5>
+                                    <h5 class="card-title"><a href="{{ route('admin.banners.create') }}"
+                                            class="btn btn-warning">Add new banner</a></h5>
 
                                     <!-- Table with hoverable rows -->
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col" class="w-5p">ID</th>
                                                 <th scope="col">Title</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col">Type</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col" class="w-10p">Image</th>
+                                                <th scope="col" class="w-10p">Type</th>
+                                                <th scope="col" class="w-10p">Status</th>
+                                                <th scope="col" class="w-10p">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>This is a title</td>
-                                                <th scope="row"><a href="#"><img src="/backend/img/product-1.jpg"
-                                                    alt=""></a></th>
-                                                <td>Top banner 700x70</td>
-                                                <td>Active</td>
-                                                <td>
-                                                    <a class="btn btn-success" href="javascript:void(0)"><i
-                                                            class="bi bi-pencil-square"></i></a>
-                                                    <button type="button" class="btn btn-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#verticalycentered">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
+                                            @foreach ($banners as $banner)
+                                                <tr>
+                                                    <th scope="row">{{ $banner->id }}</th>
+                                                    <td>
+                                                        {{ $banner->title }}
+                                                    </td>
+                                                    <th scope="row">
+                                                        @php
+                                                            $path = public_path('/storage/' . $banner->image_url);
+                                                            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
+                                                        @endphp
+                                                        <img src="{{ $imageSrc }}">
+                                                    </th>
+                                                    <td>{{ $banner->type }}</td>
+                                                    <td>{{ $banner->status }}</td>
+                                                    <td>
+                                                        <a class="btn btn-success"
+                                                            href="/admin/banners/{{ $banner->id }}/edit"><i
+                                                                class="bi bi-pencil-square"></i></a>
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#bannerModal-{{ $banner->id }}">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
 
-                                                    <div class="modal fade" id="verticalycentered" tabindex="-1">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Vertically Centered</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    Non omnis incidunt qui sed occaecati magni
-                                                                    asperiores est mollitia. Soluta at et reprehenderit.
-                                                                    Placeat autem numquam et fuga numquam. Tempora in
-                                                                    facere consequatur sit dolor ipsum. Consequatur nemo
-                                                                    amet incidunt est facilis. Dolorem neque recusandae
-                                                                    quo sit molestias sint dignissimos.
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
-                                                                        changes</button>
+                                                        <div class="modal fade" id="bannerModal-{{ $banner->id }}"
+                                                            tabindex="-1">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Delete banner</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Do you really want to delete this banner ID:
+                                                                        {{ $banner->id }}
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Close</button>
+                                                                        <form method="POST"
+                                                                            action="/admin/banners/{{ $banner->id }}">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Delete</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div><!-- End Vertically centered Modal-->
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>This is a title</td>
-                                                <th scope="row"><a href="#"><img src="/backend/img/product-1.jpg"
-                                                    alt=""></a></th>
-                                                <td>Side banner 500x280</td>
-                                                <td>Inactive</td>
-                                                <td>
-                                                    <a class="btn btn-success" href="javascript:void(0)"><i
-                                                            class="bi bi-pencil-square"></i></a>
-                                                    <button type="button" class="btn btn-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#verticalycentered2">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-
-                                                    <div class="modal fade" id="verticalycentered2" tabindex="-1">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Vertically Centered</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    This is model for row 2
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
-                                                                        changes</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- End Vertically centered Modal-->
-                                                </td>
-                                            </tr>
+                                                        </div><!-- End Vertically centered Modal-->
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <!-- End Table with hoverable rows -->
@@ -130,24 +102,8 @@
 
             </div>
             <!-- Pagination with icons -->
-            {{-- DO THIS --}}
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav><!-- End Pagination with icons -->
+            {{ $banners->links() }}
+            <!-- End Pagination with icons -->
         </section>
 
     </main><!-- End #main -->

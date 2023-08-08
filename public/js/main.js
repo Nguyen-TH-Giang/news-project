@@ -48,3 +48,16 @@ $(document).ready(function () {
     SlugTaxonomy.init();
 });
 
+// Set timeout flash message
+document.addEventListener('DOMContentLoaded', function () {
+    const flashMessage = document.querySelector("#flash-message");
+    if (flashMessage) {
+        setTimeout(() => {
+            flashMessage.classList.add('hide'); // Add 'hide' class to initiate the fade out
+            flashMessage.addEventListener('transitionend', function () {
+                flashMessage.remove();
+            });
+        }, 5000);
+    }
+})
+

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BannerAdController;
+use App\Http\Controllers\BannerAdsController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +30,11 @@ Route::get('admin', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('admin/banner', [BannerAdController::class, 'index'])->name('admin.banner');
+Route::get('admin/banners', [BannerAdsController::class, 'index'])->name('admin.banners.index');
+Route::get('admin/banners/create', [BannerAdsController::class, 'create'])->name('admin.banners.create');
+Route::post('admin/banners', [BannerAdsController::class, 'store']);
+Route::get('admin/banners/{bannerAds}/edit', [BannerAdsController::class, 'edit']);
+Route::patch('admin/banners/{bannerAds}', [BannerAdsController::class, 'update']);
+Route::delete('admin/banners/{bannerAds}', [BannerAdsController::class, 'destroy']);
 
 
