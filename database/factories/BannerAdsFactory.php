@@ -20,7 +20,7 @@ class BannerAdsFactory extends Factory
             'image_url' => 'public/banner/' . $this->faker->unique()->word() . 'png',
             'type' => $this->faker->randomElement([Constants::BANNER_TOP, Constants::BANNER_SIDE, Constants::BANNER_CENTER]),
             'status' => $this->faker->randomElement([Constants::INACTIVE, Constants::ACTIVE]),
-            'published_at' => $this->randomDateTime()
+            'published_at' => $this->randomDateTime(),
         ];
     }
 
