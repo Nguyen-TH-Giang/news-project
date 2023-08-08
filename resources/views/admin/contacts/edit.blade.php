@@ -3,7 +3,7 @@
         <div class="pagetitle">
             <h1>Contacts</h1>
             @php
-                $secondCrumb = 'Edit banner ID: ' . $contact->id;
+                $secondCrumb = 'Edit contact ID: ' . $contact->id;
             @endphp
             <x-admin.breadcrumb :items="[['label' => 'Contacts'], ['label' => $secondCrumb]]" />
         </div><!-- End Page Title -->

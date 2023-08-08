@@ -13,7 +13,7 @@ class BannerAdsController extends Controller
 {
     public function index()
     {
-        $banners = BannerAds::paginate(10);
+        $banners = BannerAds::orderBy('id', 'DESC')->paginate(10);
 
         foreach ($banners as $banner) {
             if ($banner['status'] == Constants::INACTIVE) {

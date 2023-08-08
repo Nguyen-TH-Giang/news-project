@@ -64,8 +64,7 @@
                                                                     <div class="modal-body">Do you really want to delete this banner ID: {{ $banner->id }}</div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <form method="POST"
-                                                                            action="/admin/banners/{{ $banner->id }}">
+                                                                        <form method="POST" action="/admin/banners/{{ $banner->id }}">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             <button type="submit" class="btn btn-primary">Delete</button>
