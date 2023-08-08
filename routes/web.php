@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerAdsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,8 @@ Route::get('admin/banners/{bannerAds}/edit', [BannerAdsController::class, 'edit'
 Route::patch('admin/banners/{bannerAds}', [BannerAdsController::class, 'update']);
 Route::delete('admin/banners/{bannerAds}', [BannerAdsController::class, 'destroy']);
 
+Route::get('admin/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
+Route::get('admin/contacts/{contact}/edit', [ContactController::class, 'edit']);
+Route::patch('admin/contacts/{contact}', [ContactController::class, 'update']);
+Route::delete('admin/contacts/{contact}', [ContactController::class, 'destroy']);
 

@@ -67,12 +67,7 @@ class BannerAdsController extends Controller
 
     public function edit(BannerAds $bannerAds)
     {
-        $banners = BannerAds::all();
-
-        foreach ($banners as $banner) {
-            $dateAndTime = explode(' ', $banner->published_at);
-        }
-
+        $dateAndTime = explode(' ', $bannerAds->published_at);
         $bannerAds['date'] = $dateAndTime[0];
         $bannerAds['time'] = $dateAndTime[1];
 

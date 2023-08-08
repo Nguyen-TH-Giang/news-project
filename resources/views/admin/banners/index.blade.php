@@ -17,8 +17,7 @@
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="{{ route('admin.banners.create') }}"
-                                            class="btn btn-warning">Add new banner</a></h5>
+                                    <h5 class="card-title"><a href="{{ route('admin.banners.create') }}" class="btn btn-warning">Add new banner</a></h5>
 
                                     <!-- Table with hoverable rows -->
                                     <table class="table table-hover">
@@ -49,38 +48,27 @@
                                                     <td>{{ $banner->type }}</td>
                                                     <td>{{ $banner->status }}</td>
                                                     <td>
-                                                        <a class="btn btn-success"
-                                                            href="/admin/banners/{{ $banner->id }}/edit"><i
-                                                                class="bi bi-pencil-square"></i></a>
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#bannerModal-{{ $banner->id }}">
+                                                        <a class="btn btn-success" href="/admin/banners/{{ $banner->id }}/edit">
+                                                            <i class="bi bi-pencil-square"></i></a>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bannerModal-{{ $banner->id }}">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
 
-                                                        <div class="modal fade" id="bannerModal-{{ $banner->id }}"
-                                                            tabindex="-1">
+                                                        <div class="modal fade" id="bannerModal-{{ $banner->id }}" tabindex="-1">
                                                             <div class="modal-dialog modal-dialog-centered">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title">Delete banner</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    <div class="modal-body">
-                                                                        Do you really want to delete this banner ID:
-                                                                        {{ $banner->id }}
-                                                                    </div>
+                                                                    <div class="modal-body">Do you really want to delete this banner ID: {{ $banner->id }}</div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-bs-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                         <form method="POST"
                                                                             action="/admin/banners/{{ $banner->id }}">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary">Delete</button>
+                                                                            <button type="submit" class="btn btn-primary">Delete</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
