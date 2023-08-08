@@ -38,11 +38,11 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 
-  <style>
-    .ck-editor__editable_inline {
-        min-height: 600px;
-    }
-  </style>
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 600px;
+        }
+    </style>
 </head>
 
 <body>
@@ -186,6 +186,13 @@
     </aside><!-- End Sidebar-->
 
     {{ $slot }}
+
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x" role="alert" id="flash-message">
+            {{ session()->get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">

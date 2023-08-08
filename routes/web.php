@@ -35,5 +35,6 @@ Route::get('admin/banners/create', [BannerAdsController::class, 'create'])->name
 Route::post('admin/banners', [BannerAdsController::class, 'store']);
 Route::get('admin/banners/{bannerAds}/edit', [BannerAdsController::class, 'edit']);
 Route::patch('admin/banners/{bannerAds}', [BannerAdsController::class, 'update']);
+Route::delete('admin/banners/{bannerAds}', [BannerAdsController::class, 'destroy']);
 
 

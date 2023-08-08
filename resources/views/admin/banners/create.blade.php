@@ -13,7 +13,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/banner" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/banners" enctype="multipart/form-data">
                             @csrf
                             <x-admin.form.input name="title" type="text" label="title">
                                 <x-admin.required-icon />
@@ -60,13 +60,13 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="time" type="time" label="Time">
+                            <x-admin.form.input name="time" type="time" label="Time" :step="1">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
                             <x-admin.form.checkbox name="active" legend="active" :checked="old('active') ? true : false" />
 
-                            <x-admin.form.button>Create</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.banners.index') }}">Create</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form class="needs-validation" method="POST" action="">
+                        <form class="needs-validation" method="POST" action="/admin/banners/{{ $banner->id }}">
                             @csrf
                             @method('PATCH')
 
@@ -23,12 +23,15 @@
 
                             <div class="d-flex flex-column">
                                 <div>
-                                    <x-admin.form.input name="thumbnail" type="file" label="thumbnail">
-                                        <x-admin.required-icon />
-                                    </x-admin.form.input>
+                                    <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
+
                                 </div>
                                 <div class="align-self-center">
-                                    <img src="/storage/{{ $banner->image_url }}" alt="{{ $banner->image_url }}"
+                                    @php
+                                        $path = public_path('/storage/' . $banner->image_url);
+                                        $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
+                                    @endphp
+                                    <img src="{{ $imageSrc }}" alt="{{ $banner->image_url }}"
                                         width="100">
                                 </div>
                             </div>
@@ -69,14 +72,13 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="time" type="time" label="Time" :value="old('time', $banner->time)">
+                            <x-admin.form.input name="time" type="time" label="Time" :value="old('time', $banner->time)" :step="1">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.checkbox name="active" legend="active" :value="old('active', $banner->status)"
-                                :checked="old('active', $banner->status) ? true : false" />
+                            <x-admin.form.checkbox name="active" legend="active" :value="old('active', $banner->status)" :checked="old('active', $banner->status) ? true : false" />
 
-                            <x-admin.form.button>Create</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.banners.index') }}">Create</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

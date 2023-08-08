@@ -17,7 +17,8 @@
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="{{ route('admin.banners.create') }}" class="btn btn-warning">Add new banner</a></h5>
+                                    <h5 class="card-title"><a href="{{ route('admin.banners.create') }}"
+                                            class="btn btn-warning">Add new banner</a></h5>
 
                                     <!-- Table with hoverable rows -->
                                     <table class="table table-hover">
@@ -41,9 +42,9 @@
                                                     <th scope="row">
                                                         @php
                                                             $path = public_path('/storage/' . $banner->image_url);
-                                                            $imageSrc = File::exists($path) && !is_dir($path) ? '/storage/' . $banner->image_url : '/backend/img/banner-placeholder.jpg'
+                                                            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
                                                         @endphp
-                                                        <img src="{{ $imageSrc }}" >
+                                                        <img src="{{ $imageSrc }}">
                                                     </th>
                                                     <td>{{ $banner->type }}</td>
                                                     <td>{{ $banner->status }}</td>
@@ -74,10 +75,12 @@
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-bs-dismiss="modal">Close</button>
-                                                                        <form action="">
-                                                                            <button type="button"
-                                                                                class="btn btn-primary">Save
-                                                                                changes</button>
+                                                                        <form method="POST"
+                                                                            action="/admin/banners/{{ $banner->id }}">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Delete</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
