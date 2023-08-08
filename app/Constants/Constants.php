@@ -13,4 +13,8 @@ class Constants {
     const DELETED = 2;
 
     const BANNER_PLACEHOLDER = '/backend/img/banner-placeholder.jpg';
+
+    const OPEN = 0;
+    const PENDING = 1;
+    const RESOLVED = 2;
 }

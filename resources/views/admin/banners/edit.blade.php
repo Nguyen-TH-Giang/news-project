@@ -2,7 +2,9 @@
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Banner ads</h1>
-            {{ $secondCrumb = 'Edit banner ID: ' . $banner->id }}
+            @php
+                $secondCrumb = 'Edit banner ID: ' . $banner->id
+            @endphp
             <x-admin.breadcrumb :items="[['label' => 'Banner ads'], ['label' => $secondCrumb]]" />
         </div><!-- End Page Title -->
 
@@ -24,7 +26,6 @@
                             <div class="d-flex flex-column">
                                 <div>
                                     <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
-
                                 </div>
                                 <div class="align-self-center">
                                     @php
@@ -42,28 +43,16 @@
                                 </legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="type" id="gridRadios1"
-                                            value="{{ Constants::BANNER_TOP }}"
-                                            {{ old('type', $banner->type) == Constants::BANNER_TOP ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="gridRadios1">
-                                            Top banner 700x70
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="{{ Constants::BANNER_TOP }}" {{ old('type', $banner->type) == Constants::BANNER_TOP ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gridRadios1">Top banner 700x70</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="type" id="gridRadios2"
-                                            value="{{ Constants::BANNER_SIDE }}"
-                                            {{ old('type', $banner->type) == Constants::BANNER_SIDE ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="gridRadios2">
-                                            Side banner 500x280
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_SIDE }}" {{ old('type', $banner->type) == Constants::BANNER_SIDE ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gridRadios2">Side banner 500x280</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="type" id="gridRadios2"
-                                            value="{{ Constants::BANNER_CENTER }}"
-                                            {{ old('type', $banner->type) == Constants::BANNER_CENTER ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="gridRadios2">
-                                            Center banner 700x70
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_CENTER }}" {{ old('type', $banner->type) == Constants::BANNER_CENTER ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gridRadios2">Center banner 700x70</label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -78,7 +67,7 @@
 
                             <x-admin.form.checkbox name="active" legend="active" :value="old('active', $banner->status)" :checked="old('active', $banner->status) ? true : false" />
 
-                            <x-admin.form.button route="{{ route('admin.banners.index') }}">Create</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.banners.index') }}">Edit</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>
