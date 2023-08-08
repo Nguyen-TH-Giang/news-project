@@ -15,7 +15,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form class="needs-validation" method="POST" action="/admin/banners/{{ $banner->id }}">
+                        <form method="POST" action="/admin/banners/{{ $banner->id }}">
                             @csrf
                             @method('PATCH')
 

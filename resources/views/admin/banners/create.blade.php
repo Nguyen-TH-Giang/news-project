@@ -15,7 +15,7 @@
                         <!-- General Form Elements -->
                         <form method="POST" action="/admin/banners" enctype="multipart/form-data">
                             @csrf
-                            <x-admin.form.input name="title" type="text" label="title">
+                            <x-admin.form.input name="title" type="text" label="title" :value="old('title')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
@@ -44,11 +44,11 @@
                                 <x-admin.form.error name="type" />
                             </fieldset>
 
-                            <x-admin.form.input name="date" type="date" label="Published date">
+                            <x-admin.form.input name="date" type="date" label="Published date" :value="old('date')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="time" type="time" label="Time" :step="1">
+                            <x-admin.form.input name="time" type="time" label="Time" :step="1" :value="old('time')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 

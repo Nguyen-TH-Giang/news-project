@@ -17,4 +17,6 @@ class Constants {
     const OPEN = 0;
     const PENDING = 1;
     const RESOLVED = 2;
+
+    const LOGO_PLACEHOLDER = '/backend/img/logo-placeholder.jpg';
 }
