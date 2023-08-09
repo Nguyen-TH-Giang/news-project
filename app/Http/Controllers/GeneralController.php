@@ -43,7 +43,7 @@ class GeneralController extends Controller
         $attributes['logo'] = request()->file('logo')->store('logo');
         $this->cutImage($attributes['logo']);
         General::create($attributes);
-        return redirect()->route('dashboard')->with('success', 'General information created!');
+        return redirect()->route('dashboard')->with('success', 'General information created !');
     }
 
     public function update(General $general)
@@ -64,7 +64,7 @@ class GeneralController extends Controller
         }
 
         $general->update($attributes);
-        return redirect()->route('dashboard')->with('success', 'General information updated!');
+        return redirect()->route('dashboard')->with('success', 'General information updated !');
     }
 
     protected function cutImage($url)
