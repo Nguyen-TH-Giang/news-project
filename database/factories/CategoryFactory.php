@@ -15,6 +15,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         static $id = 1;
+        $parent_id = null;
+
         if ($id == 2) {
             $parent_id = $this->faker->optional(0.4, null)->numberBetween(1, $id - 1);
         }
