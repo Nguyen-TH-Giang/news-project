@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerAdsController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\NewsletterController;
@@ -59,3 +60,6 @@ Route::post('admin/generals', [GeneralController::class, 'store']);
 Route::patch('admin/generals/{general}', [GeneralController::class, 'update']);
 
 Route::get('admin/newsletter', [NewsletterController::class, 'index']);
+
+Route::get('admin/categories', [CategoriesController::class, 'index'])->name('admin.categories.index');
+Route::get('admin/categories/create', [CategoriesController::class, 'create'])->name('admin.categories.create');
