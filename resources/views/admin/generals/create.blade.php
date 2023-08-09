@@ -38,7 +38,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="logo" type="file" label="logo" >
+                            <x-admin.form.input name="logo" type="file" label="logo (32x32)" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
