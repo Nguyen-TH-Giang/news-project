@@ -17,11 +17,14 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->integer('parent_id')->nullable();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('sort_order');
+            $table->integer('sort_order')->nullable();
             $table->tinyInteger('status')->unsigned()->default(1)->comment('0: inactive, 1: active');
             $table->timestamps();
+
+            $table->foreign('parent_id')->references('id')->on('categories')
+                  ->onDelete('set null');
             $table->softDeletes();
         });
     }

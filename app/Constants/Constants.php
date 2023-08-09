@@ -26,4 +26,7 @@ class Constants {
     const BANNER_SIDE_HEIGHT = 280;
     const LOGO_WIDTH = 32;
     const LOGO_HEIGHT = 32;
+
+    const EMPTY_VALUE = 0;
+
 }
