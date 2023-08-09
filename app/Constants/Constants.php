@@ -19,4 +19,10 @@ class Constants {
     const RESOLVED = 2;
 
     const LOGO_PLACEHOLDER = '/backend/img/logo-placeholder.jpg';
+
+    const BANNER_TOP_WIDTH = 700;
+    const BANNER_TOP_HEIGHT = 70;
+    const BANNER_SIDE_WIDTH = 500;
+    const BANNER_SIDE_HEIGHT = 280;
+
 }
