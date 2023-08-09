@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Constants\Constants;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as Faker;
@@ -30,7 +31,7 @@ class PostFactory extends Factory
             'content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'view_count' => $this->faker->randomNumber(4),
             'trending' => $this->faker->randomElement([0, 1]),
-            'status' => $this->faker->randomElement([0, 1, 2]),
+            'status' => $this->faker->randomElement([Constants::INACTIVE, Constants::ACTIVE]),
             'published_at' => $this->randomDateTime()
         ];
     }

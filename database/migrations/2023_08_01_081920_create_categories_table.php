@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->integer('sort_order');
-            $table->tinyInteger('status')->unsigned()->default(1)->comment('0: inactive, 1: active, 2: deleted');
+            $table->tinyInteger('status')->unsigned()->default(1)->comment('0: inactive, 1: active');
             $table->timestamps();
             $table->softDeletes();
         });
