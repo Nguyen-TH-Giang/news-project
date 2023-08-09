@@ -52,7 +52,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.checkbox name="active" legend="active" :checked="old('active') ? true : false" />
+                            <x-admin.form.checkbox name="status" legend="active" :checked="old('status') ? true : false" />
 
                             <x-admin.form.button route="{{ route('admin.banners.index') }}">Create</x-admin.form.button>
 

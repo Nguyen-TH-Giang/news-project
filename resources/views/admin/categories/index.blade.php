@@ -42,7 +42,7 @@
                                                     <td>{{ $category->sort_order }}</td>
                                                     <td>{{ $category->status }}</td>
                                                     <td>
-                                                        <a class="btn btn-success" href="javascript:void(0)"><i class="bi bi-pencil-square"></i></a>
+                                                        <a class="btn btn-success" href="/admin/categories/{{ $category->id }}/edit"><i class="bi bi-pencil-square"></i></a>
                                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal-{{ $category->id }}">
                                                             <i class="bi bi-trash"></i>
                                                         </button>

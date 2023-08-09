@@ -63,3 +63,7 @@ Route::get('admin/newsletter', [NewsletterController::class, 'index']);
 
 Route::get('admin/categories', [CategoriesController::class, 'index'])->name('admin.categories.index');
 Route::get('admin/categories/create', [CategoriesController::class, 'create'])->name('admin.categories.create');
+Route::post('admin/categories', [CategoriesController::class, 'store']);
+Route::get('admin/categories/{category}/edit', [CategoriesController::class, 'edit']);
+Route::patch('admin/categories/{category}', [CategoriesController::class, 'update']);
+Route::delete('admin/categories/{category}', [CategoriesController::class, 'destroy']);

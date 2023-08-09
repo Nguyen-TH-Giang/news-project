@@ -9,18 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = [];
 
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
 
-    public function parent()
-    {
-        return $this->belongsTo(Category::class, 'id');
-    }
-
-    public function children()
+    public function categories()
     {
         return $this->hasMany(Category::class, 'parent_id');
     }

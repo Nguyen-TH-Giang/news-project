@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent_id')->nullable();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('sort_order');
+            $table->integer('sort_order')->nullable();
             $table->tinyInteger('status')->unsigned()->default(1)->comment('0: inactive, 1: active');
             $table->timestamps();
 
