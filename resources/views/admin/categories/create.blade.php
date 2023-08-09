@@ -16,7 +16,7 @@
                         <form action="/admin/categories" method="POST">
                             @csrf
 
-                            <x-admin.form.input name="name" type="text" label="name" :value="old('name')">
+                            <x-admin.form.input name="title" type="text" label="name" :value="old('title')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
                             <x-admin.form.input name="slug" type="text" label="slug" :value="old('slug')">
