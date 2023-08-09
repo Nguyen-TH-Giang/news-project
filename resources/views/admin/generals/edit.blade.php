@@ -41,7 +41,7 @@
 
                             <div class="d-flex flex-column">
                                 <div>
-                                    <x-admin.form.input name="logo" type="file" label="logo" />
+                                    <x-admin.form.input name="logo" type="file" label="logo (32x32)" />
                                 </div>
                                 <div class="align-self-center">
                                     @php

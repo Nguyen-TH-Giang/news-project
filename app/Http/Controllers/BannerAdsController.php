@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Intervention\Image\Facades\Image;
 
 class BannerAdsController extends Controller
 {
@@ -57,12 +59,13 @@ class BannerAdsController extends Controller
         }
 
         $attributes['image_url'] = request()->file('image_url')->store('banners');
+        $this->cutImage($attributes['image_url'], $attributes['type']);
         $attributes['published_at'] = $attributes['date'] . ' ' . $attributes['time'];
         $attributes = Arr::except($attributes, array('date', 'time'));
 
         BannerAds::create($attributes);
 
-        return redirect()->route('admin.banners.index')->with('success', 'Banner created!');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner created !');
     }
 
     public function edit(BannerAds $bannerAds)
@@ -89,22 +92,39 @@ class BannerAdsController extends Controller
 
         if (isset($attributes['image_url'])) {
             $attributes['image_url'] = request()->file('image_url')->store('banners');
+            $this->cutImage($attributes['image_url'], $attributes['type']);
         }
+
         $attributes['published_at'] = $attributes['date'] . ' ' . $attributes['time'];
         $attributes = Arr::except($attributes, array('date', 'time'));
-
         $bannerAds->update($attributes);
 
-        return redirect()->route('admin.banners.index')->with('success', 'Banner updated!');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner updated !');
     }
 
-    public function destroy (BannerAds $bannerAds)
+    public function destroy(BannerAds $bannerAds)
     {
         $bannerAds->delete();
-        return redirect()->route('admin.banners.index')->with('success', 'Banner deleted!');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner deleted !');
     }
 
-    protected function validateBanner()
+    protected function cutImage($url, $type)
     {
+        if ($url !== false) {
+            if (($type == Constants::BANNER_TOP) || $type == Constants::BANNER_CENTER) {
+                $imageResize = Image::make(public_path('storage/' . $url));
+                $imageResize->fit(Constants::BANNER_TOP_WIDTH, Constants::BANNER_TOP_HEIGHT);
+                $imageResize->save(public_path('storage/' . $url));
+
+            } else if ($type == Constants::BANNER_SIDE) {
+                $imageResize = Image::make(public_path('storage/' . $url));
+                $imageResize->fit(Constants::BANNER_SIDE_WIDTH, Constants::BANNER_SIDE_HEIGHT);
+                $imageResize->save(public_path('storage/' . $url));
+            }
+        } else {
+            throw ValidationException::withMessages([
+                'image_url' => 'File could not be stored !'
+            ]);
+        }
     }
 }

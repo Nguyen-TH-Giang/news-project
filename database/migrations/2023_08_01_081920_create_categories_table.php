@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('sort_order');
             $table->tinyInteger('status')->unsigned()->default(1)->comment('0: inactive, 1: active, 2: deleted');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
