@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Constants\Constants;
 use App\Models\Category;
+use App\Rules\QualifiedParent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -36,13 +37,7 @@ class CategoriesController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'parent_id' => ['nullable', 'integer'],
-            'sort_order' => ['nullable', 'integer'],
-            'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
-        ]);
+        $attributes = $this->validateCategory();
 
         $attributes['name'] = $attributes['title'];
         $attributes = Arr::except($attributes, array('title'));
@@ -79,12 +74,13 @@ class CategoriesController extends Controller
         $category->delete();
         return redirect()->route('admin.categories.index')->with('success', 'Category deleted !');
     }
-    protected function validateCategory()
+
+    protected function validateCategory(Category $category = null ): array
     {
         return request()->validate([
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'parent_id' => ['nullable', 'integer'],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($category)],
+            'parent_id' => ['nullable', 'integer', new QualifiedParent],
             'sort_order' => ['nullable', 'integer'],
             'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
         ]);

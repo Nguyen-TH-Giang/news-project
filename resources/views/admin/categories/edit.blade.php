@@ -38,6 +38,7 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <x-admin.form.error name="parent_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order', $category->sort_order)"/>
