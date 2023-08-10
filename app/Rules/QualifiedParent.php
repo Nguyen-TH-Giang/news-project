@@ -8,14 +8,16 @@ use Illuminate\Contracts\Validation\Rule;
 
 class QualifiedParent implements Rule
 {
+    protected $id;
+
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -27,10 +29,16 @@ class QualifiedParent implements Rule
      */
     public function passes($attribute, $value)
     {
-        $relatedCategory = Category::where('parent_id', null)
-                            ->where('status', Constants::ACTIVE)
-                            ->whereNotNull('deleted_at')
-                            ->find($value);
+        // If parent_id is null, it's valid (no parent)
+        if ($value == Constants::EMPTY_VALUE || $value === null) {
+            return true;
+        }
+
+        $relatedCategory = Category::where('status', Constants::ACTIVE)
+            ->whereNull('deleted_at')
+            ->whereNull('parent_id')
+            ->where('id', '!=', $this->id)
+            ->find($value);
 
         return $relatedCategory !== null;
     }
