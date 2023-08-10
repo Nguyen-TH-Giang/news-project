@@ -37,7 +37,7 @@
                             </x-admin.form.field>
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order')"/>
-                            <x-admin.form.checkbox name="status" legend="active" :checked="old('active') ? true : false"/>
+                            <x-admin.form.checkbox name="status" legend="active" :checked="old('status') == Constants::ACTIVE"/>
 
                             <x-admin.form.button route="{{ route('admin.categories.index') }}">Create</x-admin.form.button>
 

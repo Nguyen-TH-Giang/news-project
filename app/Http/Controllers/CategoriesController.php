@@ -66,6 +66,7 @@ class CategoriesController extends Controller
         if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
             $attributes['parent_id'] = null;
         }
+
         $attributes['name'] = $attributes['title'];
         $attributes = Arr::except($attributes, array('title'));
         $category->update($attributes);

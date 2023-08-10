@@ -41,7 +41,7 @@
                             </x-admin.form.field>
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order', $category->sort_order)"/>
-                            <x-admin.form.checkbox name="status" legend="active" :value="old('status', $category->status)" :checked="old('status', $category->status) ? true : false"/>
+                            <x-admin.form.checkbox name="status" legend="active" :value="old('status', $category->status)" :checked="old('status', $category->status) == Constants::ACTIVE"/>
 
                             <x-admin.form.button route="{{ route('admin.categories.index') }}">Edit</x-admin.form.button>
 
