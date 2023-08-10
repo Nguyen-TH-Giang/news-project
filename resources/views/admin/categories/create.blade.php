@@ -28,16 +28,17 @@
 
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="parent_id">
-                                        <option {{ !old('parent_id') ? 'selected' : '' }}>Open this select menu</option>
+                                        <option value="{{ Constants::EMPTY_VALUE }}">Open this select menu</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}" {{ old('parent_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <x-admin.form.error name="parent_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order')"/>
-                            <x-admin.form.checkbox name="status" legend="active" :checked="old('active') ? true : false"/>
+                            <x-admin.form.checkbox name="status" legend="active" :checked="old('status') == Constants::ACTIVE"/>
 
                             <x-admin.form.button route="{{ route('admin.categories.index') }}">Create</x-admin.form.button>
 

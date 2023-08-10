@@ -65,7 +65,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.checkbox name="status" legend="active" :value="old('status', $banner->status)" :checked="old('status', $banner->status) ? true : false" />
+                            <x-admin.form.checkbox name="status" legend="active" :value="old('status', $banner->status)" :checked="old('status', $banner->status) == Constants::ACTIVE" />
 
                             <x-admin.form.button route="{{ route('admin.banners.index') }}">Edit</x-admin.form.button>
 

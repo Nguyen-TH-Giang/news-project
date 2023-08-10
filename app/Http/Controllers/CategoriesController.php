@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Constants\Constants;
 use App\Models\Category;
+use App\Rules\QualifiedParent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -30,19 +31,19 @@ class CategoriesController extends Controller
     public function create()
     {
         return view('admin.categories.create', [
-            'categories' => Category::whereNull('parent_id')->orderBy('id', 'DESC')->get()
+            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('deleted_at')->whereNull('parent_id')->orderBy('id', 'DESC')->get()
         ]);
     }
 
     public function store()
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'parent_id' => ['nullable', 'integer'],
-            'sort_order' => ['nullable', 'integer'],
-            'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
-        ]);
+        $id = Category::orderBy('id', 'desc')->value('id') + 1;
+
+        $attributes = $this->validateCategory($id);
+
+        if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
+            $attributes['parent_id'] = null;
+        }
 
         $attributes['name'] = $attributes['title'];
         $attributes = Arr::except($attributes, array('title'));
@@ -55,17 +56,18 @@ class CategoriesController extends Controller
     {
         return view('admin.categories.edit', [
             'category' => $category,
-            'categories' => Category::whereNull('parent_id')->orderBy('id', 'DESC')->get()
+            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('deleted_at')->whereNull('parent_id')->orderBy('id', 'DESC')->get()
         ]);
     }
 
     public function update(Category $category)
     {
-        $attributes = $this->validateCategory();
+        $attributes = $this->validateCategory($category->id);
 
         if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
             $attributes['parent_id'] = null;
         }
+
         $attributes['name'] = $attributes['title'];
         $attributes = Arr::except($attributes, array('title'));
         $category->update($attributes);
@@ -73,20 +75,20 @@ class CategoriesController extends Controller
         return redirect()->route('admin.categories.index')->with('success', 'Category updated !');
     }
 
-    public function destroy (Category $category)
+    public function destroy(Category $category)
     {
         $category->delete();
         return redirect()->route('admin.categories.index')->with('success', 'Category deleted !');
     }
-    protected function validateCategory()
+
+    protected function validateCategory($id, ?Category $category = null): array
     {
         return request()->validate([
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'parent_id' => ['nullable', 'integer'],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($category)],
+            'parent_id' => ['nullable', 'integer', new QualifiedParent($id)],
             'sort_order' => ['nullable', 'integer'],
             'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
         ]);
     }
 }
-

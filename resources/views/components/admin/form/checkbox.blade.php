@@ -6,9 +6,7 @@
         <div class="form-check">
             <input type="hidden" name="{{ $name }}" value="{{ Constants::INACTIVE }}">
 
-            <input class="form-check-input" type="checkbox" name="{{ $name }}"
-                {{ $attributes(['value' => old($name, Constants::ACTIVE)]) }}
-                {{ $attributes['checked'] }}>
+            <input class="form-check-input" type="checkbox" name="{{ $name }}" value="{{ Constants::ACTIVE }}" {{ $attributes }}>
         </div>
     </div>
 </div>

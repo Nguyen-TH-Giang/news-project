@@ -54,7 +54,7 @@
                                                                         <h5 class="modal-title">Delete category</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    <div class="modal-body">Do you really want to delete this banner ID: {{ $category->id }}</div>
+                                                                    <div class="modal-body">Do you really want to delete this category ID: {{ $category->id }}</div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                         <form method="POST" action="/admin/categories/{{ $category->id }}">
