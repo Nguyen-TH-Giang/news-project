@@ -31,20 +31,17 @@
                         <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
                             <input type="text" name="email" class="form-control" id="email" value="{{ old('email') }}">
-                            <div class="invalid-feedback">Please enter your username.</div>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <x-label for="password" :value="__('Password')" />
                         <input type="password" name="password" class="form-control" id="password">
-                        <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember"
-                                value="true" id="remember_me">
+                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="remember_me">
                             <label class="form-check-label" for="remember_me">{{ __('Remember me') }}</label>
                         </div>
                     </div>

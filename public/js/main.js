@@ -60,3 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 })
+
+$(document).ready(function () {
+    // Catch the click event on the sign-out link
+    $('#sign-out-link').click(function (event) {
+        // Prevent the default action of the anchor tag
+        event.preventDefault();
+
+        // Submit the logout form
+        $('#logout-form').submit();
+    });
+});
+

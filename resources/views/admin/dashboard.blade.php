@@ -25,12 +25,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-file-text"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Posts</h6></a>
+                                            <a href="{{ route('admin.posts.index') }}"><h6>Posts</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,12 +44,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-list-stars"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Categories</h6></a>
+                                            <a href="{{ route('admin.categories.index') }}"><h6>Categories</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -65,12 +63,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-tags"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Tags</h6></a>
+                                            <a href="{{ route('admin.tags.index') }}"><h6>Tags</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +82,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-megaphone"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Banner ads</h6></a>
+                                            <a href="{{ route('admin.banners.index') }}"><h6>Banner ads</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -105,12 +101,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-envelope"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Contacts</h6></a>
+                                            <a href="{{ route('admin.contacts.index') }}"><h6>Contacts</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -125,12 +120,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-people"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Generals</h6></a>
+                                            <a href="{{ route('admin.generals.index') }}"><h6>Generals</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -145,12 +139,11 @@
                                     <h5 class="card-title"></h5>
 
                                     <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-mailbox"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <a href="javascript:void(0)"><h6>Newsletter</h6></a>
+                                            <a href="{{ route('admin.newsletter.index') }}"><h6>Newsletter</h6></a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,23 +155,8 @@
                         <!-- Top Views -->
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
-
-                                <div class="filter">
-                                    <a class="icon" href="javascript:void(0)" data-bs-toggle="dropdown"><i
-                                            class="bi bi-three-dots"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                        <li class="dropdown-header text-start">
-                                            <h6>Filter</h6>
-                                        </li>
-
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Today</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">This Month</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">This Year</a></li>
-                                    </ul>
-                                </div>
-
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Top Views <span>| Today</span></h5>
+                                    <h5 class="card-title">Top Views <span>Of all time</span></h5>
 
                                     <table class="table table-borderless">
                                         <thead>
@@ -190,49 +168,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="javascript:void(0)"><img src="backend/img/product-1.jpg"
-                                                            alt=""></a></th>
-                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>64</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="javascript:void(0)"><img src="backend/img/product-1.jpg"
-                                                            alt=""></a></th>
-                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>64</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="javascript:void(0)"><img
-                                                            src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>64</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="javascript:void(0)"><img
-                                                            src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>64</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <th scope="row"><a href="javascript:void(0)"><img
-                                                            src="backend/img/product-1.jpg" alt=""></a></th>
-                                                <td><a href="javascript:void(0)" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas nulla</a></td>
-                                                <td>64</td>
-                                            </tr>
+                                            @foreach ($posts as $post)
+                                                <tr>
+                                                    <td>{{ $post->id }}</td>
+                                                    <th scope="row">
+                                                        @php
+                                                            $path = public_path('/storage/' . $post->thumbnail);
+                                                            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
+                                                        @endphp
+                                                        <img src="{{ $imageSrc }}">
+                                                    </th>
+                                                    <td>
+                                                        <a href="admin/posts/{{ $post->id }}/edit" class="text-primary fw-bold">
+                                                            {{ $post->title }}
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ $post->view_count }}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
-
                                 </div>
 
                             </div>

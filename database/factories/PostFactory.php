@@ -27,7 +27,7 @@ class PostFactory extends Factory
             'tag_ids' => $randomTagIds,
             'slug' => $this->faker->unique()->slug(),
             'title' => $this->faker->sentence(),
-            'description' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
+            'description' => $this->faker->paragraph(),
             'content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'view_count' => $this->faker->randomNumber(4),
             'trending' => $this->faker->randomElement([0, 1]),
