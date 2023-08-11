@@ -28,6 +28,7 @@ class Category extends Model
 
         static::deleting(function($category) {
             static::where('parent_id', $category->id)->update(['parent_id' => null]);
+            $category->posts()->update(['category_id' => null]);
         });
 
         static::updating(function ($category) {

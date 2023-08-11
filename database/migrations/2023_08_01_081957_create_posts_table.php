@@ -15,15 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('tag_ids');
+            $table->integer('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->string('tag_ids')->nullable();
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
             $table->string('title');
             $table->text('description');
             $table->text('content');
-            $table->unsignedBigInteger('view_count');
+            $table->unsignedBigInteger('view_count')->nullable();
             $table->tinyInteger('trending')->unsigned()->default(0)->comment('0: not trending, 1: trending');
             $table->tinyInteger('status')->unsigned()->default(0)->comment('0: draft, 1: published');
             $table->timestamps();
