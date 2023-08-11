@@ -78,37 +78,34 @@
 
                 <li class="nav-item dropdown pe-3">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)"
-                        data-bs-toggle="dropdown">
-                        <img src="/backend/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)" data-bs-toggle="dropdown">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6>{{ auth()->user()->name }}</h6>
+                            <span>{{ auth()->user()->email }}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
+                            <a id="sign-out-link" class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
                         </li>
+
+                        <form id="logout-form" action="/logout" method="POST" class="d-none">
+                            @csrf
+                            <button type="submit">Log Out</button>
+                        </form>
 
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
@@ -124,7 +121,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="/admin">
+                <a class="nav-link {{ request()->is('admin') ? '' : 'collapsed' }}" href="/admin">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -133,49 +130,49 @@
             <li class="nav-heading">Pages</li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/posts') ? '' : 'collapsed' }}" href="{{ route('admin.posts.index') }}">
                     <i class="bi bi-file-text"></i>
                     <span>Posts</span>
                 </a>
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/categories') ? '' : 'collapsed' }}" href="{{ route('admin.categories.index') }}">
                     <i class="bi bi-list-stars"></i>
                     <span>Categories</span>
                 </a>
             </li><!-- End F.A.Q Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/tags') ? '' : 'collapsed' }}" href="{{ route('admin.tags.index') }}">
                     <i class="bi bi-tags"></i>
                     <span>Tags</span>
                 </a>
             </li><!-- End Contact Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/banners') ? '' : 'collapsed' }}" href="{{ route('admin.banners.index') }}">
                     <i class="bi bi-megaphone"></i>
                     <span>Banner ads</span>
                 </a>
             </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/contacts') ? '' : 'collapsed' }}" href="{{ route('admin.contacts.index') }}">
                     <i class="bi bi-envelope"></i>
                     <span>Contacts</span>
                 </a>
             </li><!-- End Login Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/generals') ? '' : 'collapsed' }}" href="{{ route('admin.generals.index') }}">
                     <i class="bi bi-people"></i>
                     <span>Generals</span>
                 </a>
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="javascript:void(0)">
+                <a class="nav-link {{ Str::startsWith(request()->path(), 'admin/newsletter') ? '' : 'collapsed' }}" href="{{ route('admin.newsletter.index') }}">
                     <i class="bi bi-mailbox"></i>
                     <span>Newsletter</span>
                 </a>

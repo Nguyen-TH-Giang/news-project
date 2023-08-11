@@ -31,9 +31,7 @@
                         <div class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
 
-                            <input type="text" name="email" class="form-control"
-                                id="email" :value="old('email', $request->email)" required>
-                            <div class="invalid-feedback">Please enter your username.</div>
+                            <input type="text" name="email" class="form-control" id="email" value="{{ old('email', $request->email) }}" required>
                         </div>
                     </div>
 
@@ -48,8 +46,7 @@
                     <div class="col-12">
                         <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                        <input type="password" name="password_confirmation" class="form-control"
-                            id="password_confirmation" required>
+                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" required>
                     </div>
 
                     <div class="col-12">
