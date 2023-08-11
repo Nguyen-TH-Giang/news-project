@@ -34,7 +34,7 @@
                                     <select class="form-select" aria-label="Default select example" name="parent_id">
                                         <option value="{{ Constants::EMPTY_VALUE }}">Remove parent category</option>
                                         @foreach ($categories as $item)
-                                            <option value="{{ $item->id }}" {{ old('parent_id', $category->parent_id) == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}" @if(old('parent_id', $category->parent_id) == $item->id) selected @endif>{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -54,10 +54,6 @@ class BannerAdsController extends Controller
             'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
         ]);
 
-        if (request('status') == Constants::ACTIVE) {
-            $attributes['status'] = request('status');
-        }
-
         $attributes['image_url'] = request()->file('image_url')->store('banners');
         $this->cutImage($attributes['image_url'], $attributes['type']);
         $attributes['published_at'] = $attributes['date'] . ' ' . $attributes['time'];

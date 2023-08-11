@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,3 +68,10 @@ Route::post('admin/categories', [CategoriesController::class, 'store']);
 Route::get('admin/categories/{category}/edit', [CategoriesController::class, 'edit']);
 Route::patch('admin/categories/{category}', [CategoriesController::class, 'update']);
 Route::delete('admin/categories/{category}', [CategoriesController::class, 'destroy']);
+
+Route::get('admin/posts', [PostsController::class, 'index'])->name('admin.posts.index');
+Route::get('admin/posts/create', [PostsController::class, 'create'])->name('admin.posts.create');
+Route::post('admin/posts', [PostsController::class, 'store']);
+Route::get('admin/posts/{post}/edit', [PostsController::class, 'edit']);
+Route::patch('admin/posts/{post}', [PostsController::class, 'update']);
+Route::delete('admin/posts/{post}', [PostsController::class, 'destroy']);

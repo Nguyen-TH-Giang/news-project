@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Constants\Constants;
 use App\Models\Category;
+use App\Models\Post;
 use App\Rules\QualifiedParent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -31,7 +32,11 @@ class CategoriesController extends Controller
     public function create()
     {
         return view('admin.categories.create', [
-            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('deleted_at')->whereNull('parent_id')->orderBy('id', 'DESC')->get()
+            'categories' => Category::where('status', Constants::ACTIVE)
+                            ->whereNull('deleted_at')
+                            ->whereNull('parent_id')
+                            ->orderByRaw("ISNULL(sort_order), sort_order ASC, id DESC")
+                            ->get()
         ]);
     }
 
@@ -56,13 +61,17 @@ class CategoriesController extends Controller
     {
         return view('admin.categories.edit', [
             'category' => $category,
-            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('deleted_at')->whereNull('parent_id')->orderBy('id', 'DESC')->get()
+            'categories' => Category::where('status', Constants::ACTIVE)
+                                    ->whereNull('deleted_at')
+                                    ->whereNull('parent_id')
+                                    ->orderByRaw("ISNULL(sort_order), sort_order ASC, id DESC")
+                                    ->get()
         ]);
     }
 
     public function update(Category $category)
     {
-        $attributes = $this->validateCategory($category->id);
+        $attributes = $this->validateCategory($category->id, $category);
 
         if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
             $attributes['parent_id'] = null;
@@ -85,7 +94,7 @@ class CategoriesController extends Controller
     {
         return request()->validate([
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($category)],
+            'slug' => ['required', Rule::unique('categories', 'slug')->ignore($category)],
             'parent_id' => ['nullable', 'integer', new QualifiedParent($id)],
             'sort_order' => ['nullable', 'integer'],
             'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]

@@ -28,9 +28,9 @@
 
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="parent_id">
-                                        <option value="{{ Constants::EMPTY_VALUE }}">Open this select menu</option>
+                                        <option value="{{ Constants::EMPTY_VALUE }}">Open this category menu</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}" {{ old('parent_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" @if(old('parent_id') == $category->id) selected @endif>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

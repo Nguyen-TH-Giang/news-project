@@ -12,13 +12,14 @@ class Constants {
     const ACTIVE = 1;
     const DELETED = 2;
 
-    const BANNER_PLACEHOLDER = '/backend/img/banner-placeholder.jpg';
 
     const OPEN = 0;
     const PENDING = 1;
     const RESOLVED = 2;
 
+    const BANNER_PLACEHOLDER = '/backend/img/banner-placeholder.jpg';
     const LOGO_PLACEHOLDER = '/backend/img/logo-placeholder.jpg';
+    const POST_PLACEHOLDER = '/news/img/post-placeholder.png';
 
     const BANNER_TOP_WIDTH = 700;
     const BANNER_TOP_HEIGHT = 70;
@@ -28,5 +29,14 @@ class Constants {
     const LOGO_HEIGHT = 32;
 
     const EMPTY_VALUE = 0;
+
+    const NOT_TRENDY = 0;
+    const TRENDY = 1;
+
+    const DRAFT = 0;
+    const PUBLISHED = 1;
+
+    const POST_WIDTH = 800;
+    const POST_HEIGHT = 450;
 
 }
