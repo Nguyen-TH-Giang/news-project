@@ -22,6 +22,13 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    public function scopeFilterName($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        });
+    }
+
     public static function boot()
     {
         parent::boot();
