@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::orderBy('id', 'DESC')->paginate(10);
+        $contacts = Contact::orderBy('id', 'DESC')->filter(request(['search']))->paginate(10)->withQueryString();
 
         foreach ($contacts as $contact) {
             if ($contact['status'] == Constants::OPEN) {

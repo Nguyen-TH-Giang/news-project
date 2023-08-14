@@ -10,7 +10,7 @@ class NewsletterController extends Controller
     public function index()
     {
         return view('admin.newsletters.index', [
-            'newsletters' => NewsletterSubscriptions::orderBy('id', 'DESC')->paginate(10)
+            'newsletters' => NewsletterSubscriptions::orderBy('id', 'DESC')->filter(request(['search']))->paginate(10)->withQueryString()
         ]);
     }
 }

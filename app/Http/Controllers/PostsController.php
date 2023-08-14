@@ -19,7 +19,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category')->orderBy('id', 'DESC')->paginate(10);
+        $posts = Post::with('category')->orderBy('id', 'DESC')->filter(request(['search']))->paginate(10)->withQueryString();
 
         foreach ($posts as $post) {
             if ($post['status'] == Constants::DRAFT) {
