@@ -24,7 +24,7 @@
                                                 <div class="col-md-12 d-flex flex-row">
                                                   <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
                                                   <button type="submit" title="Search" class="btn btn-primary rounded-pill"><i class="bi bi-search"></i></button>
-                                                  <a href="{{ route('admin.banners.create') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
+                                                  <a href="{{ route('admin.banners.index') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
                                                 </div>
                                             </form>
                                         </div>
