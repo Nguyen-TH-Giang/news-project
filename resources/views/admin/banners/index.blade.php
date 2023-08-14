@@ -20,9 +20,9 @@
                                     <div class="card-title row g-3">
                                         <div class="col-md-8"><a href="{{ route('admin.banners.create') }}" class="btn btn-warning">Add new banner</a></div>
                                         <div class="col-md-4">
-                                            <form class="row g-3" >
+                                            <form class="row g-3" method="GET" action="#">
                                                 <div class="col-md-12 d-flex flex-row">
-                                                  <input type="text" class="form-control" placeholder="Search">
+                                                  <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
                                                   <button type="submit" title="Search" class="btn btn-primary rounded-pill"><i class="bi bi-search"></i></button>
                                                   <a href="{{ route('admin.banners.create') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
                                                 </div>
