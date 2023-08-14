@@ -14,7 +14,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('id', 'DESC')->filterName(request(['search']))->paginate(10);
+        $categories = Category::orderBy('id', 'DESC')->filterName(request(['search']))->paginate(10)->withQueryString();
 
         foreach ($categories as $category) {
             if ($category['status'] == Constants::INACTIVE) {
