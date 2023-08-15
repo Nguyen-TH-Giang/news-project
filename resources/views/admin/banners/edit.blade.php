@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="/admin/banners/{{ $banner->id }}" class="mt-4">
+                            <form method="POST" action="/admin/banners/{{ $banner->id }}" class="mt-4" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
 
@@ -23,7 +23,7 @@
 
                                 <div class="d-flex flex-column">
                                     <div>
-                                        <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
+                                        <x-admin.form.input name="image_url" type="file" label="Image" />
                                     </div>
                                     <div class="align-self-center">
                                         @php

@@ -38,6 +38,7 @@
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Thumbnail</th>
                                                 <th scope="col">Title</th>
+                                                <th scope="col" class="w-10p">Featured</th>
                                                 <th scope="col" class="w-10p">Trending</th>
                                                 <th scope="col" class="w-10p">Status</th>
                                                 <th scope="col" class="w-10p">Action</th>
@@ -56,6 +57,7 @@
                                                         <img src="{{ $imageSrc }}">
                                                     </th>
                                                     <td>{{ $post->title }}</td>
+                                                    <td>{{ $post->featured }}</td>
                                                     <td>{{ $post->trending }}</td>
                                                     <td>{{ $post->status }}</td>
                                                     <td>

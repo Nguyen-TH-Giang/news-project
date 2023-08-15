@@ -19,6 +19,7 @@ class CategoryFactory extends Factory
             'parent_id' => Category::whereNull('parent_id')->inRandomOrder()->value('id'),
             'name' => $this->faker->unique()->word(),
             'slug' => $this->faker->unique()->slug(),
+            'image_url' => 'category/' . $this->faker->unique()->word() . '.png',
             'sort_order' => $this->faker->randomNumber(1),
             'status' => $this->faker->randomElement([Constants::INACTIVE, Constants::ACTIVE]),
         ];

@@ -13,13 +13,17 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form action="/admin/categories" method="POST">
+                        <form action="/admin/categories" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <x-admin.form.input name="title" type="text" label="name" :value="old('title')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
                             <x-admin.form.input name="slug" type="text" label="slug" :value="old('slug')">
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
+
+                            <x-admin.form.input name="image_url" type="file" label="Image">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 

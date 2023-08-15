@@ -30,6 +30,7 @@ class PostFactory extends Factory
             'description' => $this->faker->paragraph(),
             'content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'view_count' => $this->faker->randomNumber(4),
+            'featured' => $this->faker->randomElement([0, 1]),
             'trending' => $this->faker->randomElement([0, 1]),
             'status' => $this->faker->randomElement([Constants::INACTIVE, Constants::ACTIVE]),
             'published_at' => $this->randomDateTime()
@@ -38,7 +39,13 @@ class PostFactory extends Factory
 
     protected function randomDateTime() {
         $faker = Faker::create();
-        $randomDateTime = $faker->dateTimeBetween('now', '+1 week');
+
+        if ($faker->boolean(80)) {
+            $randomDateTime = $faker->dateTimeBetween('-1 week', 'now');
+        } else {
+            $randomDateTime = $faker->dateTimeBetween('now', '+1 week');
+        }
+
         return $randomDateTime->format('Y-m-d H:i:s');
     }
 }

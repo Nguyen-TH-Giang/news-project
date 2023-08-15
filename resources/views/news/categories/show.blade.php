@@ -38,7 +38,7 @@
             <x-news.center-banner />
 
             <div class="row">
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                     <x-news.small-news-item />
                 </div>
                 <div class="col-lg-6">
@@ -66,7 +66,7 @@
                     <x-news.small-news-item />
                 </div>
                 <div class="col-lg-6">
-                    <x-news.small-news-item />
+                    <x-news.small-news-item /> --}}
                 </div>
             </div>
             <div class="row">

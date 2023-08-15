@@ -16,7 +16,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/categories/{{ $category->id }}">
+                        <form method="POST" action="/admin/categories/{{ $category->id }}" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
 
@@ -26,6 +26,19 @@
                             <x-admin.form.input name="slug" type="text" label="slug" :value="old('slug', $category->slug)">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
+
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <x-admin.form.input name="image_url" type="file" label="Image" />
+                                </div>
+                                <div class="align-self-center">
+                                    @php
+                                        $path = public_path('/storage/' . $category->image_url);
+                                        $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $category->image_url) : Constants::CATEGORY_PLACEHOLDER;
+                                    @endphp
+                                    <img src="{{ $imageSrc }}" alt="{{ $category->image_url }}" width="100">
+                                </div>
+                            </div>
 
                             <x-admin.form.field>
                                 <x-admin.form.label label="parent category" />

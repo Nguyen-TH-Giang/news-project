@@ -9,6 +9,8 @@ use App\Rules\QualifiedParent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Intervention\Image\Facades\Image;
 
 class CategoriesController extends Controller
 {
@@ -46,6 +48,12 @@ class CategoriesController extends Controller
 
         $attributes = $this->validateCategory($id);
 
+        $attributes['image_url'] = request()->file('image_url')->store('categories');
+
+        if ($attributes['image_url'] !== false) {
+            $this->cutImage($attributes['image_url']);
+        }
+
         if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
             $attributes['parent_id'] = null;
         }
@@ -73,6 +81,14 @@ class CategoriesController extends Controller
     {
         $attributes = $this->validateCategory($category->id, $category);
 
+        if (isset($attributes['image_url'])) {
+            $attributes['image_url'] = request()->file('image_url')->store('categories');
+
+            if ($attributes['image_url'] !== false) {
+                $this->cutImage($attributes['image_url']);
+            }
+        }
+
         if ($attributes['parent_id'] == Constants::EMPTY_VALUE){
             $attributes['parent_id'] = null;
         }
@@ -92,12 +108,28 @@ class CategoriesController extends Controller
 
     protected function validateCategory($id, ?Category $category = null): array
     {
+        $category ??= new Category();
+
         return request()->validate([
             'title' => 'required',
             'slug' => ['required', Rule::unique('categories', 'slug')->ignore($category)],
             'parent_id' => ['nullable', 'integer', new QualifiedParent($id)],
+            'image_url' => $category->exists ? ['image', 'max:1024'] : ['required', 'image', 'max:1024'],
             'sort_order' => ['nullable', 'integer'],
             'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
         ]);
+    }
+
+    public function cutImage($url)
+    {
+        try {
+            $imageResize = Image::make(public_path('storage/' . $url));
+            $imageResize->fit(Constants::CATEGORY_WIDTH, Constants::CATEGORY_HEIGHT);
+            $imageResize->save(public_path('storage/' . $url));
+        } catch (\Exception $e) {
+            throw ValidationException::withMessages([
+                'image_url' => 'File could not be stored !'
+            ]);
+        }
     }
 }

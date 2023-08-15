@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->unsignedBigInteger('view_count')->nullable();
+            $table->tinyInteger('featured')->unsigned()->default(0)->comment('0: not featured, 1: featured');
             $table->tinyInteger('trending')->unsigned()->default(0)->comment('0: not trending, 1: trending');
             $table->tinyInteger('status')->unsigned()->default(0)->comment('0: draft, 1: published');
             $table->timestamps();

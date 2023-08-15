@@ -35,8 +35,9 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Parent category</th>
+                                                <th scope="col" class="w-5p">ID</th>
+                                                <th scope="col" class="w-10p">Image</th>
+                                                <th scope="col" class="w-15p">Parent category</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col" class="w-10p">Sort order</th>
                                                 <th scope="col" class="w-10p">Status</th>
@@ -47,6 +48,13 @@
                                             @foreach ($categories as $category)
                                                 <tr>
                                                     <th scope="row">{{ $category->id }}</th>
+                                                    <td>
+                                                        @php
+                                                            $path = public_path('/storage/' . $category->image_url);
+                                                            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $category->image_url) : Constants::CATEGORY_PLACEHOLDER;
+                                                        @endphp
+                                                        <img src="{{ $imageSrc }}">
+                                                    </td>
                                                     <td>{{ $category->parent_id }}</td>
                                                     <td>{{ $category->name }}</td>
                                                     <td>{{ $category->sort_order }}</td>

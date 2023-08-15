@@ -82,6 +82,8 @@
                             <x-admin.form.input name="time" type="time" label="Time" :step="1" :value="old('time')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
+                            <x-admin.form.checkbox name="featured" legend="featured" :checked="old('featured') == Constants::FEATURED" />
+
                             <x-admin.form.checkbox name="trending" legend="trending" :checked="old('trending') == Constants::TRENDY" />
                             <x-admin.form.input name="description" type="text" label="description" :value="old('description')">
                                 <x-admin.required-icon />
