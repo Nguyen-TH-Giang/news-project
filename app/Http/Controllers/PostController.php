@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Constants\Constants;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -39,6 +40,14 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('news.posts.show');
+        $tagIds = explode(',', $post->tag_ids);
+        $tagNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+
+        return view('news.posts.show',[
+            'post' => $post->load(['category' => function ($query) {
+                $query->where('status', Constants::ACTIVE);
+            }]),
+            'tagNames' => $tagNames
+        ]);
     }
 }

@@ -7,10 +7,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0&appId=1263984424255702&autoLogAppEvents=1" nonce="QHVTfeQY"></script>
 
     @php
         $path = public_path('/storage/' . $generals->logo);
-        $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $generals->logo) : 'news/img/favicon.ico';
+        $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $generals->logo) : '/news/img/favicon.ico';
     @endphp
     <!-- Favicon -->
     <link href="{{ $imageSrc }}" rel="icon">
@@ -23,10 +25,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="news/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/news/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="news/css/style.css" rel="stylesheet">
+    <link href="/news/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -104,16 +107,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="news/lib/easing/easing.min.js"></script>
-    <script src="news/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/news/lib/easing/easing.min.js"></script>
+    <script src="/news/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js" integrity="sha512-/bOVV1DV1AQXcypckRwsR9ThoCj7FqTV2/0Bm79bL3YSyLkVideFLE3MIZkq1u5t28ke1c0n31WYCOrO01dsUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Contact Javascript File -->
-    <script src="news/mail/jqBootstrapValidation.min.js"></script>
-    <script src="news/mail/contact.js"></script>
+    <script src="/news/mail/jqBootstrapValidation.min.js"></script>
+    <script src="/news/mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="news/js/main.js"></script>
+    <script src="/news/js/main.js"></script>
 </body>
 
 </html>
