@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerAdsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GeneralController;
@@ -24,10 +25,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('category', [CategoryController::class, 'index']);
+
 
 /** Test view */
-Route::get('/test', function () {
-    return view('news.contact');
+Route::get('test', function () {
+    return view('news.categories.index');
 });
 /** End test view */
 
