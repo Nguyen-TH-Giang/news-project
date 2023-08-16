@@ -15,9 +15,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="/backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,13 +28,6 @@
 
     <!-- Template Main CSS File -->
     <link href="/backend/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin - v2.5.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -65,13 +56,9 @@
                             <h6>{{ auth()->user()->name }}</h6>
                             <span>{{ auth()->user()->email }}</span>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
 
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><hr class="dropdown-divider"></li>
 
                         <li>
                             <a id="sign-out-link" class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
@@ -84,7 +71,6 @@
                             @csrf
                             <button type="submit">Log Out</button>
                         </form>
-
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
 
@@ -95,7 +81,6 @@
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
@@ -157,7 +142,6 @@
             </li><!-- End Blank Page Nav -->
 
         </ul>
-
     </aside><!-- End Sidebar-->
 
     {{ $slot }}
@@ -170,12 +154,10 @@
     @endif
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="copyright"><strong><span>Digital Magazine</span></strong></div>
-    </footer><!-- End Footer -->
+    <footer id="footer" class="footer"> <div class="copyright"><strong><span>Digital Magazine</span></strong></div></footer>
+    <!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script>
