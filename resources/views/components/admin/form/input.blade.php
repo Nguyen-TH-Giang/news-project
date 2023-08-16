@@ -9,6 +9,6 @@
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             {{ $attributes(['value' => old($name)]) }}
             {{ $attributes['step'] }}>
+        <x-admin.form.error name="{{ $name }}" />
     </div>
-    <x-admin.form.error name="{{ $name }}" />
 </x-admin.form.field>
