@@ -49,17 +49,11 @@ $(document).ready(function () {
 });
 
 // Set timeout flash message
-document.addEventListener('DOMContentLoaded', function () {
-    const flashMessage = document.querySelector("#flash-message");
-    if (flashMessage) {
-        setTimeout(() => {
-            flashMessage.classList.add('hide'); // Add 'hide' class to initiate the fade out
-            flashMessage.addEventListener('transitionend', function () {
-                flashMessage.remove();
-            });
-        }, 5000);
-    }
-})
+if (document.querySelector("#flash-message")) {
+    setTimeout(() => {
+        document.querySelector("#flash-message").remove();
+    }, 5000);
+}
 
 $(document).ready(function () {
     // Catch the click event on the sign-out link

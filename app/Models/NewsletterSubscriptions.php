@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class NewsletterSubscriptions extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function scopeFilter($query, array $filters)
     {

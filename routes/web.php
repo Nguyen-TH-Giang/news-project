@@ -29,6 +29,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('category', [CategoryController::class, 'index']);
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'store']);
+Route::post('newsletter', [NewsletterController::class, 'store']);
 
 
 /** Test view */
