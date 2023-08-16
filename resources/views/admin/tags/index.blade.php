@@ -45,7 +45,7 @@
                                         <tbody>
                                             @foreach ($tags as $tag)
                                             <tr>
-                                                <th scope="row">{{ $tag->id }}</th>
+                                                <td scope="row"><strong>{{ $tag->id }}</strong></td>
                                                 <td>{{ $tag->name }}</td>
                                                 <td class="text-center">{{ $tag->sort_order }}</td>
                                                 <td>

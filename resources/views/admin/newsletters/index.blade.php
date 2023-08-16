@@ -41,7 +41,7 @@
                                         <tbody>
                                             @foreach ($newsletters as $newsletter)
                                                 <tr>
-                                                    <th scope="row">{{ $newsletter->id }}</th>
+                                                    <td scope="row"><strong>{{ $newsletter->id }}</strong></td>
                                                     <td>{{ $newsletter->email }}</td>
                                                     <td>{{ $newsletter->created_at }}</td>
                                                 </tr>

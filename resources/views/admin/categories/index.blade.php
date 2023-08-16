@@ -47,7 +47,7 @@
                                         <tbody>
                                             @foreach ($categories as $category)
                                                 <tr>
-                                                    <th scope="row">{{ $category->id }}</th>
+                                                    <td scope="row"><strong>{{ $category->id }}</strong></td>
                                                     <td>
                                                         @php
                                                             $path = public_path('/storage/' . $category->image_url);

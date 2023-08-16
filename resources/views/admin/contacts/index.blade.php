@@ -44,7 +44,7 @@
                                         <tbody>
                                             @foreach ($contacts as $contact)
                                                 <tr>
-                                                    <th scope="row">{{ $contact->id }}</th>
+                                                    <td scope="row"><strong>{{ $contact->id }}</strong></td>
                                                     <td>{{ $contact->name }}</td>
                                                     <td>{{ $contact->email }}</td>
                                                     <td>{{ $contact->status }}</td>

@@ -41,15 +41,15 @@
                                     <div class="col-sm-10">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="{{ Constants::BANNER_TOP }}" @if(old('type', $banner->type) == Constants::BANNER_TOP) checked @endif>
-                                            <label class="form-check-label" for="gridRadios1">Top banner 700x70</label>
+                                            <label class="form-check-label" for="gridRadios1">Top banner (700x70)</label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_SIDE }}" @if(old('type', $banner->type) == Constants::BANNER_SIDE) checked @endif>
-                                            <label class="form-check-label" for="gridRadios2">Side banner 500x280</label>
+                                            <label class="form-check-label" for="gridRadios2">Side banner (500x280)</label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_CENTER }}" @if(old('type', $banner->type) == Constants::BANNER_CENTER) checked @endif>
-                                            <label class="form-check-label" for="gridRadios2">Center banner 700x70</label>
+                                            <label class="form-check-label" for="gridRadios2">Center banner (700x70)</label>
                                         </div>
                                     </div>
                                 </fieldset>

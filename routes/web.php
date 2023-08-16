@@ -31,13 +31,6 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact.index'
 Route::post('contact', [ContactController::class, 'store']);
 Route::post('newsletter', [NewsletterController::class, 'store']);
 
-
-/** Test view */
-Route::get('test', function () {
-    return view('news.categories.index');
-});
-/** End test view */
-
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {

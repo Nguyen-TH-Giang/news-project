@@ -94,6 +94,7 @@
                             <x-admin.form.input name="time" type="time" label="Time" :value="old('time', $post->time)" :step="1">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
+                            <x-admin.form.checkbox name="featured" legend="featured" :value="old('featured', $post->featured)" :checked="old('featured', $post->featured) == Constants::FEATURED"/>
                             <x-admin.form.checkbox name="trending" legend="trending" :value="old('status', $post->trending)" :checked="old('trending', $post->trending) == Constants::TRENDY"/>
                             <x-admin.form.input name="description" type="text" label="description" :value="old('description', $post->description)"/>
                             <x-admin.form.textarea name="content" id="editor" label="content">

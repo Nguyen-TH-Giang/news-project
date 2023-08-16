@@ -45,17 +45,17 @@
                                         <tbody>
                                             @foreach ($banners as $banner)
                                                 <tr>
-                                                    <th scope="row">{{ $banner->id }}</th>
+                                                    <td scope="row"><strong>{{ $banner->id }}</strong></td>
                                                     <td>
                                                         {{ $banner->title }}
                                                     </td>
-                                                    <th scope="row">
+                                                    <td scope="row">
                                                         @php
                                                             $path = public_path('/storage/' . $banner->image_url);
                                                             $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
                                                         @endphp
                                                         <img src="{{ $imageSrc }}">
-                                                    </th>
+                                                    </td>
                                                     <td>{{ $banner->type }}</td>
                                                     <td>{{ $banner->status }}</td>
                                                     <td>

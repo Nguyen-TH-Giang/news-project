@@ -47,15 +47,15 @@
                                         <tbody>
                                             @foreach ($posts as $post)
                                                 <tr>
-                                                    <th scope="row">{{ $post->id }}</th>
-                                                    <th scope="row">@if ($post->category !== null) {{ $post->category->name }} @endif</th>
-                                                    <th scope="row">
+                                                    <td scope="row" class=""><strong>{{ $post->id }}</strong></td>
+                                                    <td scope="row">@if ($post->category !== null) <strong>{{ $post->category->name }}</strong> @endif</td>
+                                                    <td scope="row">
                                                         @php
                                                             $path = public_path('/storage/' . $post->thumbnail);
                                                             $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
                                                         @endphp
                                                         <img src="{{ $imageSrc }}">
-                                                    </th>
+                                                    </td>
                                                     <td>{{ $post->title }}</td>
                                                     <td>{{ $post->featured }}</td>
                                                     <td>{{ $post->trending }}</td>
