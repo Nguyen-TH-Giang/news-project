@@ -19,7 +19,7 @@
                         <img class="img-fluid w-100 h-100" src="{{ $imageSrc }}" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-1" style="font-size: 13px;">
-                                <a class="text-white" href="">{{ $featuredPost->category->name ?? '' }}</a>
+                                <a class="text-white" href="/?category={{ $featuredPost->category->slug ?? ''  }}">{{ $featuredPost->category->name ?? '' }}</a>
                                 <span class="px-1 text-white">/</span>
                                 <a class="text-white" href="">{{ (\Carbon\Carbon::parse($featuredPost->published_at))->diffForHumans() }}</a>
                             </div>

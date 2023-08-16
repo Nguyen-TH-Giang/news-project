@@ -6,7 +6,7 @@
     <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;">
     <div class="overlay position-relative bg-light">
         <div class="mb-2" style="font-size: 14px;">
-            <a href="javascript:void(0)">{{ $post->category->name ?? '' }}</a>
+            <a href="/?category={{ $post->category->slug ?? ''  }}">{{ $post->category->name ?? '' }}</a>
             <span class="px-1">/</span>
             <span>{{ (\Carbon\Carbon::parse($post->published_at))->diffForHumans() }}</span>
         </div>

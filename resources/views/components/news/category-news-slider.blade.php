@@ -22,7 +22,7 @@
                                             <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;">
                                             <div class="overlay position-relative bg-light">
                                                 <div class="mb-2" style="font-size: 13px;">
-                                                    <a href="javascript:void(0)">{{ $category->name }}</a>
+                                                    <a href="/?category={{ $category->slug ?? ''  }}">{{ $category->name }}</a>
                                                     <span class="px-1">/</span>
                                                     <span>{{ (\Carbon\Carbon::parse($post->published_at))->timezone('Asia/Ho_Chi_Minh')->format('F j, Y g:i A') }}</span>
                                                 </div>

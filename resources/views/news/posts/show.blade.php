@@ -4,9 +4,9 @@
         <div class="container">
             <nav class="breadcrumb bg-transparent m-0 p-0">
                 <a class="breadcrumb-item" href="/">Home</a>
-                <a class="breadcrumb-item" href="javascript:void(0)">Category</a>
+                <a class="breadcrumb-item" href="/category">Category</a>
                 @if (!is_null($post->category))
-                    <a class="breadcrumb-item" href="javascript:void(0)">{{ ucwords($post->category->name) }}</a>
+                    <a class="breadcrumb-item" href="/?category={{ $post->category->slug }}">{{ ucwords($post->category->name) }}</a>
                 @endif
 
                 <span class="breadcrumb-item active">{{ $post->title }}</span>
@@ -37,7 +37,7 @@
                         <p><u>Tags</u>:
                             @if (!is_null($tagNames))
                                 @foreach ($tagNames as $tagName)
-                                    <a href="javascript:void(0)">{{ $tagName }}</a>
+                                    <a href="/?tag={{ $tagName }}">{{ $tagName }}</a>
                                 @endforeach
                             @endif
                         </p>

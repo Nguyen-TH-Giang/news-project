@@ -16,7 +16,7 @@
                                 <img class="img-fluid h-100" src="{{ $imageSrc }}" style="object-fit: cover;">
                                 <div class="overlay">
                                     <div class="mb-1">
-                                        <a class="text-white" href="">{{ $popularPost->category->name ?? '' }}</a>
+                                        <a class="text-white" href="/?category={{ $popularPost->category->slug ?? ''  }}">{{ $popularPost->category->name ?? '' }}</a>
                                         <span class="px-2 text-white">/</span>
                                         <a class="text-white" href="">{{ \Carbon\Carbon::parse($popularPost->published_at)->diffForHumans() }}</a>
                                     </div>

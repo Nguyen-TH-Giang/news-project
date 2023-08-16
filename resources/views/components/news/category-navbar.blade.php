@@ -6,16 +6,16 @@
         @if ($loop->iteration <= 10)
             @if ($category->categories->isNotEmpty())
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
+                    <a href="/?category={{ $category->slug }}" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
                     <!-- Sub categories here -->
                     <div class="dropdown-menu rounded-0 m-0">
                         @foreach ($category->categories as $subcategory)
-                            <a href="javascript:void(0)" class="dropdown-item">{{ $subcategory->name }}</a>
+                            <a href="/?category={{ $subcategory->slug }}" class="dropdown-item">{{ $subcategory->name }}</a>
                         @endforeach
                     </div>
                 </div>
             @else
-                <a href="javascript:void(0)" class="nav-item nav-link">{{ $category->name }}</a>
+                <a href="/?category={{ $category->slug }}" class="nav-item nav-link">{{ $category->name }}</a>
             @endif
         @endif
     @endforeach
