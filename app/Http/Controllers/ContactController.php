@@ -2,54 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Constants\Constants;
 use App\Models\Contact;
+use App\Models\General;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::orderBy('id', 'DESC')->filter(request(['search']))->paginate(10)->withQueryString();
-
-        foreach ($contacts as $contact) {
-            if ($contact['status'] == Constants::OPEN) {
-                $contact['status'] = 'Open';
-            } else if ($contact['status'] == Constants::PENDING) {
-                $contact['status'] = 'Pending';
-            } else if ($contact['status'] == Constants::RESOLVED) {
-                $contact['status'] = 'Resolved';
-            }
-        }
-
-        return view('admin.contacts.index', [
-            'contacts' => $contacts
+        return view('news.contact', [
+            'generals' => General::first()
         ]);
     }
 
-    public function edit(Contact $contact)
-    {
-        return view('admin.contacts.edit', [
-            'contact' => $contact
-        ]);
-    }
-
-    public function update(Contact $contact)
+    public function store()
     {
         $attributes = request()->validate([
-            'status' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE]
+            'name' => 'required',
+            'email' => ['required', 'email'],
+            'subject' => 'required',
+            'message' => 'required',
         ]);
+        $attributes['content'] = $attributes['message'];
+        $attributes = Arr::except($attributes, array('message'));
 
-        if (isset($attributes['status'])) {
-            $contact->update($attributes);
+        try {
+            Contact::create($attributes);
+            return response()->json(['success' => 'Thank you, your submission has been saved!']);
+        } catch (QueryException $e) {
+            return response()->json(['error' => 'Failed to create the contact.'], 500);
         }
-
-        return redirect()->route('admin.contacts.index')->with('success', 'Contact updated!');
-    }
-
-    public function destroy(Contact $contact)
-    {
-        $contact->delete();
-        return redirect()->route('admin.contacts.index')->with('success', 'Contact deleted!');
     }
 }

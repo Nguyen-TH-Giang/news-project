@@ -51,7 +51,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Content</div>
-                                        <div class="col-lg-9 col-md-8">{!! $contact->content !!}</div>
+                                        <div class="col-lg-9 col-md-8">{{ $contact->content }}</div>
                                     </div>
                                 </div>
 

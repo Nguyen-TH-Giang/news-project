@@ -50,7 +50,7 @@
             <!-- Comment List Start -->
             <div class="bg-light mb-3" style="padding: 30px;">
                 {{-- Facebook comment plugin here --}}
-                {{-- <div class="fb-comments" data-href="http://news.com/posts/{{ $post->slug }}" data-width="" data-numposts="5"></div> --}}
+                <div class="fb-comments" data-href="http://127.0.0.1:8000/posts/{{ $post->slug }}" data-width="" data-numposts="5"></div>
             </div>
         </div>
     </x-news.news-with-sidebar>

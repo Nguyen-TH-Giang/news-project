@@ -13,7 +13,7 @@
                             <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                                 {{-- A post --}}
                                 @foreach ($category->posts as $post)
-                                    @if ($loop->iteration <= 3)
+                                    @if ($loop->iteration <= 5)
                                         <div class="position-relative">
                                             @php
                                                 $path = public_path('/storage/' . $post->thumbnail);

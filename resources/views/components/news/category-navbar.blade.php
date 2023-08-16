@@ -1,6 +1,6 @@
 <div class="navbar-nav mr-auto py-0">
     <a href="/" class="nav-item nav-link active">Home</a>
-    <a href="javascript:void(0)" class="nav-item nav-link">Categories</a>
+    <a href="/category" class="nav-item nav-link">Categories</a>
 
     @foreach ($categories as $category)
         @if ($loop->iteration <= 10)
@@ -19,5 +19,5 @@
             @endif
         @endif
     @endforeach
-    <a href="javascript:void(0)" class="nav-item nav-link">Contact</a>
+    <a href="/contact" class="nav-item nav-link">Contact</a>
 </div>
