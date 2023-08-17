@@ -1,9 +1,3 @@
-ClassicEditor
-    .create(document.querySelector('#editor'))
-    .catch(error => {
-        console.error(error);
-    });
-
 const SlugTaxonomy = {
     /**
      * Change string to slug.
@@ -66,3 +60,10 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+});

@@ -7,6 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## The Project Installation Instruction
+Every package should be stored in the public/assets/vendor folder. In this project: the package is stored in the folder with the corresponding name, for example: everything inside the jquery folder after installation should also be inside the public/assets/vendor/jquery folder.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

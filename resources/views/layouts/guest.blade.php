@@ -56,6 +56,8 @@
     <!-- Template Main JS File -->
     <script src="/backend/js/main.js"></script>
 
-    <script src="/js/main.js"></script>
+    <script src="/assets/vendor/jquery/dist/jquery.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/backend/js/triggerValidation.js"></script>
 </body>
 </html>

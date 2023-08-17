@@ -19,25 +19,26 @@
                     <p class="text-center small">Enter your email & password to login</p>
                 </div>
 
-                <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}" novalidate>
+                <form class="row g-3" method="POST" action="{{ route('login') }}" id="loginForm" novalidate>
                     @csrf
 
                     <div class="col-12">
-                        <x-label for="email" :value="__('Email')" />
-
-                        <div class="input-group has-validation">
+                        <x-label :value="__('Email')" />
+                        <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" name="email" class="form-control" id="email" value="{{ old('email') }}" required>
-                            <div class="invalid-feedback">Please enter your email.</div>
-                            <x-admin.form.error name="email" />
+                            <input type="text" name="email" class="form-control"  value="{{ old('email') }}">
+                            <div class="invalid-feedback" id="email"></div>
+                            <x-admin.form.error field="email" />
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <x-label for="password" :value="__('Password')" />
-                        <input type="password" name="password" class="form-control" id="password" required>
-                        <div class="invalid-feedback">Please enter your password!</div>
-                        <x-admin.form.error name="password" />
+                        <x-label :value="__('Password')" />
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+                            <div class="invalid-feedback" id="password"></div>
+                            <x-admin.form.error field="password" />
+                        </div>
                     </div>
 
                     <div class="col-12">
