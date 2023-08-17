@@ -15,7 +15,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/generals" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/generals" enctype="multipart/form-data" id="generalsCreateForm">
                             @csrf
 
                             <x-admin.form.input name="contact_name" type="text" label="contact name" :value="old('contact_name')">
@@ -38,7 +38,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="logo" type="file" label="logo (32x32)" >
+                            <x-admin.form.input name="logo" type="file" label="Favicon (32x32)" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 

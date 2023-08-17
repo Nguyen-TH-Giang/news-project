@@ -13,7 +13,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form action="/admin/posts" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/posts" method="POST" enctype="multipart/form-data" id="postCreateForm" novalidate>
                             @csrf
                             <x-admin.form.input name="title" type="text" label="title" :value="old('title')">
                                 <x-admin.required-icon />
@@ -35,7 +35,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <x-admin.form.error name="category_id" />
+                                <x-admin.form.error field="category_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.field>
@@ -52,7 +52,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <x-admin.form.error name="tag_ids" />
+                                <x-admin.form.error field="tag_ids" />
                             </x-admin.form.field>
 
                             <x-admin.form.input name="thumbnail" type="file" label="thumbnail">
@@ -73,7 +73,7 @@
                                         <label class="form-check-label" for="gridRadios2">Published</label>
                                     </div>
                                 </div>
-                                <x-admin.form.error name="status" />
+                                <x-admin.form.error field="status" />
                             </fieldset>
 
                             <x-admin.form.input name="date" type="date" label="Published date" :value="old('date')">

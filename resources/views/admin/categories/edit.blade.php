@@ -16,7 +16,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/categories/{{ $category->id }}" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/categories/{{ $category->id }}" enctype="multipart/form-data" id="categoryEditForm" novalidate>
                             @csrf
                             @method('PATCH')
 
@@ -31,7 +31,8 @@
                                 <div>
                                     <x-admin.form.input name="image_url" type="file" label="Image" />
                                 </div>
-                                <div class="align-self-center">
+                                <div class="mb-2">
+                                    <label class="col-sm-2 col-form-label"></label>
                                     @php
                                         $path = public_path('/storage/' . $category->image_url);
                                         $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $category->image_url) : Constants::CATEGORY_PLACEHOLDER;

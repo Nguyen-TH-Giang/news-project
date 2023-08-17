@@ -176,6 +176,9 @@
     <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
 
     <script src="/assets/vendor/jquery/dist/jquery.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/additional-methods.js"></script>
+    <script src="/backend/js/triggerValidation.js"></script>
 
     <script src="/js/main.js"></script>
 </body>

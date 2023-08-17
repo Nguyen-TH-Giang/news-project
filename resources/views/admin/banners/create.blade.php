@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="/admin/banners" enctype="multipart/form-data" class="mt-4">
+                            <form method="POST" action="/admin/banners" enctype="multipart/form-data" class="mt-4" id="bannerCreateForm" novalidate>
                                 @csrf
                                 <x-admin.form.input name="title" type="text" label="title" :value="old('title')">
                                     <x-admin.required-icon />
@@ -34,11 +34,12 @@
                                             <label class="form-check-label" for="gridRadios2">Side banner (500x280)</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_CENTER }}" {{ old('type') == Constants::BANNER_CENTER ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="gridRadios2">Center banner (700x70)</label>
+                                            <input class="form-check-input" type="radio" name="type" id="gridRadios3" value="{{ Constants::BANNER_CENTER }}" {{ old('type') == Constants::BANNER_CENTER ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="gridRadios3">Center banner (700x70)</label>
                                         </div>
+                                        <div class="invalid-feedback" id="type"></div>
+                                        <x-admin.form.error field="type" />
                                     </div>
-                                    <x-admin.form.error name="type" />
                                 </fieldset>
 
                                 <x-admin.form.input name="date" type="date" label="Published date" :value="old('date')">

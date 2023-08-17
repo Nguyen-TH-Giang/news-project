@@ -15,7 +15,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/tags/{{ $tag->id }}">
+                        <form method="POST" action="/admin/tags/{{ $tag->id }}" id="tagEditForm" novalidate>
                             @csrf
                             @method('PATCH')
 

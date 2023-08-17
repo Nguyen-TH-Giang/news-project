@@ -15,9 +15,9 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/tags">
+                        <form method="POST" action="/admin/tags" id="tagCreateForm" novalidate>
                             @csrf
-                            <x-admin.form.input name="name" type="text" label="name" :value="old('name')">
+                            <x-admin.form.input name="name" type="text" label="Tag name" :value="old('name')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 

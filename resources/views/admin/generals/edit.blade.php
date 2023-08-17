@@ -15,7 +15,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/generals/{{ $general->id }}" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/generals/{{ $general->id }}" enctype="multipart/form-data" id="generalsEditForm" novalidate>
                             @csrf
                             @method('PATCH')
 
