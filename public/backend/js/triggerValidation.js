@@ -62,10 +62,11 @@ $(document).ready(function () {
             errorPlacement: function (error, element) {
                 // Xóa nội dung bên trong trước khi thêm
                 var fieldName = element.attr("name");
-                error.appendTo("#" + fieldName);
                 var $invalidFeedback = $("#" + fieldName + ".invalid-feedback");
-                $invalidFeedback.show();
 
+                $invalidFeedback.empty();
+                error.appendTo("#" + fieldName);
+                $invalidFeedback.show();
             },
         });
     }
