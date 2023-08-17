@@ -156,7 +156,7 @@
                         <div class="col-12">
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Top Views <span>Of all time</span></h5>
+                                    <h5 class="card-title">Top 5 views <span>of all time</span></h5>
 
                                     <table class="table table-borderless">
                                         <thead>
@@ -170,7 +170,7 @@
                                         <tbody>
                                             @foreach ($posts as $post)
                                                 <tr>
-                                                    <td>{{ $post->id }}</td>
+                                                    <td><strong>{{ $post->id }}</strong></td>
                                                     <th scope="row">
                                                         @php
                                                             $path = public_path('/storage/' . $post->thumbnail);
@@ -183,7 +183,7 @@
                                                             {{ $post->title }}
                                                         </a>
                                                     </td>
-                                                    <td>{{ $post->view_count }}</td>
+                                                    <td>{{ number_format($post->view_count, 0, '', ',') }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

@@ -22,8 +22,8 @@
                                             <form class="row g-3" method="GET" action="#">
                                                 <div class="col-md-12 d-flex flex-row">
                                                   <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
-                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill"><i class="bi bi-search"></i></button>
-                                                  <a href="{{ route('admin.contacts.index') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
+                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill ms-1"><i class="bi bi-search"></i></button>
+                                                  <a href="{{ route('admin.contacts.index') }}" class="btn btn-danger rounded-pill ms-1"><i class="bi bi-arrow-clockwise"></i></a>
                                                 </div>
                                             </form>
                                         </div>
@@ -33,12 +33,12 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col" class="w-5p">ID</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col" class="w-15p">Email</th>
+                                                <th scope="col" class="w-10p">Status</th>
+                                                <th scope="col" class="w-15p">Date</th>
+                                                <th scope="col" class="w-10p">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,9 +50,9 @@
                                                     <td>{{ $contact->status }}</td>
                                                     <td>{{ $contact->created_at }}</td>
                                                     <td>
-                                                        <a class="btn btn-success" href="/admin/contacts/{{ $contact->id }}/edit">
+                                                        <a class="btn btn-primary" href="/admin/contacts/{{ $contact->id }}/edit">
                                                             <i class="bi bi-pencil-square"></i></a>
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal-{{ $contact->id }}">
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#contactModal-{{ $contact->id }}">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
 
@@ -72,7 +72,7 @@
                                                                             action="/admin/contacts/{{ $contact->id }}">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                            <button type="submit" class="btn btn-primary">Delete</button>
+                                                                            <button type="submit" class="btn btn-danger">Delete</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>

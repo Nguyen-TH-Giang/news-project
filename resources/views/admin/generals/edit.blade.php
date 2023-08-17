@@ -35,9 +35,10 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="description" type="text" label="description" :value="old('description', $general->description)">
+                            <x-admin.form.textarea name="description" id="editor" label="description">
                                 <x-admin.required-icon />
-                            </x-admin.form.input>
+                                <x-slot name="content">{{ old('description', $general->description) }}</x-slot>
+                            </x-admin.form.textarea>
 
                             <div class="d-flex flex-column">
                                 <div>
@@ -59,7 +60,7 @@
                             <x-admin.form.input name="youtube_link" type="text" label="youtube link" :value="old('youtube_link', $general->youtube_link)"/>
                             <x-admin.form.input name="vimeo_link" type="text" label="vimeo link" :value="old('vimeo_link', $general->vimeo_link)"/>
 
-                            <x-admin.form.button route="{{ route('dashboard') }}">Edit</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('dashboard') }}">Update</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

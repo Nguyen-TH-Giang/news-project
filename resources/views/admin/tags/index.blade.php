@@ -20,13 +20,13 @@
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
                                     <div class="card-title row g-3">
-                                        <div class="col-md-8"><a href="{{ route('admin.tags.create') }}" class="btn btn-warning">Add new tag</a></div>
+                                        <div class="col-md-8"><a href="{{ route('admin.tags.create') }}" class="btn btn-primary">Add new tag</a></div>
                                         <div class="col-md-4">
                                             <form class="row g-3" method="GET" action="#">
                                                 <div class="col-md-12 d-flex flex-row">
                                                   <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
-                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill"><i class="bi bi-search"></i></button>
-                                                  <a href="{{ route('admin.tags.index') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
+                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill ms-1"><i class="bi bi-search"></i></button>
+                                                  <a href="{{ route('admin.tags.index') }}" class="btn btn-danger rounded-pill ms-1"><i class="bi bi-arrow-clockwise"></i></a>
                                                 </div>
                                             </form>
                                         </div>
@@ -36,7 +36,7 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col" class="w-5p">ID</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col" class="w-10p">Sort order</th>
                                                 <th scope="col" class="w-10p">Action</th>
@@ -49,8 +49,8 @@
                                                 <td>{{ $tag->name }}</td>
                                                 <td class="text-center">{{ $tag->sort_order }}</td>
                                                 <td>
-                                                    <a class="btn btn-success" href="/admin/tags/{{ $tag->id }}/edit"><i class="bi bi-pencil-square"></i></a>
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tagModal-{{ $tag->id }}">
+                                                    <a class="btn btn-primary" href="/admin/tags/{{ $tag->id }}/edit"><i class="bi bi-pencil-square"></i></a>
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tagModal-{{ $tag->id }}">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
 
@@ -67,7 +67,7 @@
                                                                     <form method="POST" action="/admin/tags/{{ $tag->id }}">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                                                        <button type="submit" class="btn btn-danger">Delete</button>
                                                                     </form>
                                                                 </div>
                                                             </div>

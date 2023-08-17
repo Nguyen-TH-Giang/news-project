@@ -24,7 +24,7 @@ $(document).ready(function () {
         dateISO: (param, element) => customMessages.dateISO(getNearestLabel(element)),
         number: (param, element) => customMessages.number(getNearestLabel(element)),
         digits: (param, element) => customMessages.digits(getNearestLabel(element)),
-        equalTo:  function(param, element) {
+        equalTo: function (param, element) {
             var equalToField = getNearestLabel($("[name=" + param.substring(1) + "]")[0]);
             return customMessages.equalTo(getNearestLabel(element), equalToField);
         },
@@ -37,33 +37,35 @@ $(document).ready(function () {
         min: (param, element) => customMessages.min(getNearestLabel(element), param),
     });
 
-    $.validator.addMethod("phoneVN", function(value, element) {
+    $.validator.addMethod("phoneVN", function (value, element) {
         var regex = /^(0\d{9})|(\+(84)\d{9})$/;
 
         return this.optional(element) || regex.test(value);
-    },(params, element) => `The ${getNearestLabel(element)} format is invalid.`);
+    }, (params, element) => `The ${getNearestLabel(element)} format is invalid.`);
 
     function getNearestLabel(element) {
-        var label = $(element).closest(".field").find("label");
+        var label = $(element).closest(".field").find("label").first();
 
         if (label.length > 0) {
-            return label.text().replace(/[\:\*]/g, "").trim();
+            return label.text().replace(/[\:\*]/g, "").trim().toLowerCase();
         }
         return $(element).attr("name");
     }
 
     function setupValidation(formId, rules) {
         $(formId).validate({
-            debug: false,
+            ignore: [],
             onfocusout: false,
             onkeyup: false,
             onclick: false,
             rules: rules,
             errorPlacement: function (error, element) {
+                // Xóa nội dung bên trong trước khi thêm
                 var fieldName = element.attr("name");
                 error.appendTo("#" + fieldName);
                 var $invalidFeedback = $("#" + fieldName + ".invalid-feedback");
                 $invalidFeedback.show();
+
             },
         });
     }
@@ -158,6 +160,7 @@ $(document).ready(function () {
 
     // Generals
     if ($("#generalsCreateForm").length > 0) {
+
         setupValidation("#generalsCreateForm", {
             contact_name: "required",
             email: {
@@ -169,7 +172,10 @@ $(document).ready(function () {
                 phoneVN: true
             },
             address: "required",
-            description: "required",
+            description: {
+                required: true,
+                maxlength: 255
+            },
             logo: "required",
             fb_link: "url",
             instagram_link: "url",
@@ -196,7 +202,10 @@ $(document).ready(function () {
                 phoneVN: true
             },
             address: "required",
-            description: "required",
+            description: {
+                required: true,
+                maxlength: 255
+            },
             fb_link: "url",
             instagram_link: "url",
             twitter_link: "url",

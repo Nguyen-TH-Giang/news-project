@@ -41,10 +41,11 @@
                             <x-admin.form.field>
                                 <x-admin.form.label label="tags"/>
                                 <div class="col-sm-10">
-                                    <select class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
+                                    <select id="multiple-select-field" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
                                         <option value="{{ Constants::EMPTY_VALUE }}" @if(in_array(Constants::EMPTY_VALUE, old('tag_ids', []))) selected @endif>
-                                            Remove all tags
+                                        Remove all tags
                                         </option>
+
                                         @foreach ($tags as $tag)
                                             <option value="{{ $tag->id }}" @if(in_array($tag->id, old('tag_ids', []))) selected @endif>
                                                 {{ $tag->name }}

@@ -42,12 +42,13 @@ class PostController extends Controller
         } else {
             return view('news.posts.index', [
                 'categories' => Category::with(['posts' => function ($query) {
-                    $query->where('status', Constants::ACTIVE)
+                    $query->where('status', Constants::PUBLISHED)
                         ->where('published_at', '<=', now())
                         ->orderBy('published_at', 'desc');
                 }])
-                    ->where('status', Constants::PUBLISHED)
-                    ->paginate(4),
+                    ->where('status', Constants::ACTIVE)
+                    ->take(4) // The UI can not take more than 4
+                    ->get(),
                 'popularPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
                     ->where('status', Constants::PUBLISHED)
                     ->where('featured', Constants::NOT_FEATURED)

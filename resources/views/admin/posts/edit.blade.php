@@ -46,7 +46,7 @@
                             <x-admin.form.field>
                                 <x-admin.form.label label="tags"/>
                                 <div class="col-sm-10">
-                                    <select id="mulSelect" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
+                                    <select id="multiple-select-field" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
                                         <option value="{{ Constants::EMPTY_VALUE }}" @if(in_array(Constants::EMPTY_VALUE, old('tag_ids', []))) selected @endif>
                                             Remove all tags
                                         </option>
@@ -105,7 +105,7 @@
                                 <x-admin.required-icon />
                                 <x-slot name="content">{{ old('content', $post->content) }}</x-slot>
                             </x-admin.form.textarea>
-                            <x-admin.form.button route="{{ route('admin.posts.index') }}">Edit</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.posts.index') }}">Update</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

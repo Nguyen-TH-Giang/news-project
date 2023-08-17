@@ -6,8 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Admin</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="/backend/img/favicon.png" rel="icon">
@@ -20,11 +18,15 @@
     <!-- Vendor CSS Files -->
     <link href="/backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/backend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/backend/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="/backend/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="/backend/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/backend/vendor/simple-datatables/style.css" rel="stylesheet">
+    {{-- <link href="/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/quill/quill.snow.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/quill/quill.bubble.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/remixicon/remixicon.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/simple-datatables/style.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <!-- Or for RTL support -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" /> --}}
 
     <!-- Template Main CSS File -->
     <link href="/backend/css/style.css" rel="stylesheet">
@@ -159,28 +161,29 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
     <!-- Vendor JS Files -->
-    <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script>
+    {{-- <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script> --}}
     <script src="/backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/backend/vendor/chart.js/chart.umd.js"></script>
-    <script src="/backend/vendor/echarts/echarts.min.js"></script>
-    <script src="/backend/vendor/quill/quill.min.js"></script>
-    <script src="/backend/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="/backend/vendor/tinymce/tinymce.min.js"></script>
-    <script src="/backend/vendor/php-email-form/validate.js"></script>
+    {{-- <script src="/backend/vendor/chart.js/chart.umd.js"></script> --}}
+    {{-- <script src="/backend/vendor/echarts/echarts.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/quill/quill.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/simple-datatables/simple-datatables.js"></script> --}}
+    {{-- <script src="/backend/vendor/tinymce/tinymce.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/php-email-form/validate.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/additional-methods.js"></script>
+    <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
+
+    <!-- JS Interaction File -->
+    <script src="/backend/js/select2Interactions.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/backend/js/triggerValidation.js"></script>
 
     <!-- Template Main JS File -->
     <script src="/backend/js/main.js"></script>
-
-    <!-- CKEditor -->
-    <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
-
-    <script src="/assets/vendor/jquery/dist/jquery.js"></script>
-    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="/assets/vendor/jquery-validation/dist/additional-methods.js"></script>
-    <script src="/backend/js/triggerValidation.js"></script>
-
-    <script src="/js/main.js"></script>
 </body>
 
 </html>

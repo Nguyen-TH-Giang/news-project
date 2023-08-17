@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
 
-                                        <x-admin.form.button route="{{ route('admin.contacts.index') }}">Edit</x-admin.form.button>
+                                        <x-admin.form.button route="{{ route('admin.contacts.index') }}">Update</x-admin.form.button>
                                     </form><!-- End settings Form -->
                                 </div>
 

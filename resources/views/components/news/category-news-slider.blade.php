@@ -19,8 +19,8 @@
                                                 $path = public_path('/storage/' . $post->thumbnail);
                                                 $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
                                             @endphp
-                                            <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;">
-                                            <div class="overlay position-relative bg-light">
+                                            <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;"  data-mh="image">
+                                            <div class="overlay position-relative bg-light" data-mh="category">
                                                 <div class="mb-2" style="font-size: 13px;">
                                                     <a href="/?category={{ $category->slug ?? ''  }}">{{ $category->name }}</a>
                                                     <span class="px-1">/</span>

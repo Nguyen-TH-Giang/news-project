@@ -33,9 +33,9 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col" class="w-5p">ID</th>
                                                 <th scope="col">Email</th>
-                                                <th scope="col">Subscription date</th>
+                                                <th scope="col" class="w-15p">Subscription date</th>
                                             </tr>
                                         </thead>
                                         <tbody>

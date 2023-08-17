@@ -36,8 +36,14 @@ class GeneralController extends Controller
             'email' => ['required', 'email'],
             'phone' => ['required', 'regex:/^((0)\d{9})$|^(\+(84)\d{9})$/'],
             'address' => 'required',
-            'description' => 'required',
+            'description' => ['required', 'string', 'max:255'],
             'logo' => ['required', 'image', 'max:1024'],
+            'fb_link' => 'url',
+            'instagram_link' => 'url',
+            'twitter_link' => 'url',
+            'linkedin_link' => 'url',
+            'youtube_link' => 'url',
+            'vimeo_link' => 'url',
         ]);
 
         $attributes['logo'] = request()->file('logo')->store('logo');
@@ -53,8 +59,14 @@ class GeneralController extends Controller
             'email' => ['required', 'email'],
             'phone' => ['required', 'regex:/^((0)\d{9})$|^(\+(84)\d{9})$/'],
             'address' => 'required',
-            'description' => 'required',
+            'description' => ['required', 'string', 'max:255'],
             'logo' => ['image', 'max:1024'],
+            'fb_link' => 'url',
+            'instagram_link' => 'url',
+            'twitter_link' => 'url',
+            'linkedin_link' => 'url',
+            'youtube_link' => 'url',
+            'vimeo_link' => 'url',
         ]);
 
         $attributes = request()->all();
