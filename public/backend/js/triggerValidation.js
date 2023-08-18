@@ -104,11 +104,8 @@ $(document).ready(function () {
             password_confirmation: {
                 required: true,
                 minlength: 8,
+                equalTo: "#input_password",
             }
-        });
-
-        $("[name=password_confirmation]").rules("add", {
-            equalTo: "#password",
         });
     }
 
