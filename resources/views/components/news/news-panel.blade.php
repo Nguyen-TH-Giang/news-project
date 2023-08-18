@@ -16,6 +16,7 @@
             @endif
         @endfor
     </div>
+    {{-- More than 6 will stretch the page too long --}}
     @if ($count >= 6)
         @break
     @endif

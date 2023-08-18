@@ -5,9 +5,9 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="d-flex justify-content-center col-lg-12">
-                            <p>You are looking for:
-                                @if (!empty($params))
-                                    <strong>{{ $params }}</strong>
+                            <p>You are looking at
+                                @if (!empty($indicator))
+                                    <strong>{{ $indicator }}</strong>
                                 @endif
                             </p>
                         </div>

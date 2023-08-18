@@ -4,18 +4,14 @@
 </div>
 
 @foreach ($categories as $category)
-    @if ($loop->iteration <= 4)
-        <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-            @php
-                $path = public_path('/storage/' . $category->image_url);
-                $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $category->image_url) : Constants::CATEGORY_PLACEHOLDER;
-            @endphp
-            <img class="img-fluid w-100 h-100" src="{{ $imageSrc }}" style="object-fit: cover;">
-            <a href="/?category={{ $category->slug }}" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                {{ ucfirst($category->name) }}
-            </a>
-        </div>
-    @else
-        @break
-    @endif
+    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
+        @php
+            $path = public_path('/storage/' . $category->image_url);
+            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $category->image_url) : Constants::CATEGORY_PLACEHOLDER;
+        @endphp
+        <img class="img-fluid w-100 h-100" src="{{ $imageSrc }}" style="object-fit: cover;">
+        <a href="/?category={{ $category->slug }}" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+            {{ ucfirst($category->name) }}
+        </a>
+    </div>
 @endforeach

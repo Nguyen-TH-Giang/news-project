@@ -26,7 +26,7 @@ class CategorySide extends Component
     public function render()
     {
         return view('components.news.category-side', [
-            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('parent_id')->get()
+            'categories' => Category::where('status', Constants::ACTIVE)->whereNull('parent_id')->take(4)->get()
         ]);
     }
 }

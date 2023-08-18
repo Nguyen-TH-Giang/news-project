@@ -29,6 +29,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/news/css/style.css" rel="stylesheet">
+    <link href="/news/css/customizedStyle.css" rel="stylesheet">
 
 </head>
 

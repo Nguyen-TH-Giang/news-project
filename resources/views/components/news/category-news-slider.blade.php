@@ -13,23 +13,21 @@
                             <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                                 {{-- A post --}}
                                 @foreach ($category->posts as $post)
-                                    @if ($loop->iteration <= 5)
-                                        <div class="position-relative">
-                                            @php
-                                                $path = public_path('/storage/' . $post->thumbnail);
-                                                $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
-                                            @endphp
-                                            <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;"  data-mh="image">
-                                            <div class="overlay position-relative bg-light" data-mh="category">
-                                                <div class="mb-2" style="font-size: 13px;">
-                                                    <a href="/?category={{ $category->slug ?? ''  }}">{{ $category->name }}</a>
-                                                    <span class="px-1">/</span>
-                                                    <span>{{ (\Carbon\Carbon::parse($post->published_at))->timezone('Asia/Ho_Chi_Minh')->format('F j, Y g:i A') }}</span>
-                                                </div>
-                                                <a class="h4 m-0" href="/posts/{{ $post->slug }}" data-mh="title">{{ $post->title }}</a>
+                                    <div class="position-relative">
+                                        @php
+                                            $path = public_path('/storage/' . $post->thumbnail);
+                                            $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
+                                        @endphp
+                                        <img class="img-fluid w-100" src="{{ $imageSrc }}" style="object-fit: cover;"  data-mh="image">
+                                        <div class="overlay position-relative bg-light" data-mh="category">
+                                            <div class="mb-2" style="font-size: 13px;">
+                                                <a href="/?category={{ $category->slug ?? ''  }}">{{ $category->name }}</a>
+                                                <span class="px-1">/</span>
+                                                <span>{{ (\Carbon\Carbon::parse($post->published_at))->timezone('Asia/Ho_Chi_Minh')->format('F j, Y g:i A') }}</span>
                                             </div>
+                                            <a class="h4 m-0" href="/posts/{{ $post->slug }}" data-mh="title">{{ $post->title }}</a>
                                         </div>
-                                    @endif
+                                    </div>
                                 @endforeach
                             </div>
                         @else

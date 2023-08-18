@@ -9,7 +9,7 @@
         </div>
     </div>
     <!-- Breadcrumb End -->
-    
+
     <x-news.news-with-sidebar>
         <div class="col-lg-8">
             @foreach ($categories as $category)
@@ -28,6 +28,12 @@
                                 </div>
                             @endif
                         @endforeach
+                    @else
+                        <div class="col-12">
+                            <div class="d-flex align-items-center justify-content-center bg-light h4 py-2 px-4 mb-3">
+                                <div class="p-5">No posts in this category yet!</div>
+                            </div>
+                        </div>
                     @endif
                 </div>
                 @if ($loop->iteration == 1)

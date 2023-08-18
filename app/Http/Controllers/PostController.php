@@ -32,38 +32,65 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                    ->filter($translatedRequest)
-                    ->where('status', Constants::PUBLISHED)
-                    ->where('published_at', '<=', now())
-                    ->paginate(14)
-                    ->withQueryString(),
-                'params' => $parameterString
+                                ->filter($translatedRequest)
+                                ->where('status', Constants::PUBLISHED)
+                                ->where('published_at', '<=', now())
+                                ->paginate(14)
+                                ->withQueryString(),
+                'indicator' => $parameterString
+            ]);
+        } else if(request()->has(['popular'])) {
+
+            return view('news.posts.search', [
+                'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
+                                ->where('status', Constants::PUBLISHED)
+                                ->where('featured', Constants::NOT_FEATURED)
+                                ->where('published_at', '<=', now())
+                                ->orderBy('view_count', 'desc')
+                                ->paginate(14)
+                                ->withQueryString(),
+                'indicator' => 'all of the popular posts'
+            ]);
+        } else if (request()->has(['lastest'])) {
+
+            return view('news.posts.search', [
+                'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
+                                ->where('status', Constants::PUBLISHED)
+                                ->where('featured', Constants::NOT_FEATURED)
+                                ->where('published_at', '<=', now())
+                                ->orderBy('published_at', 'desc')
+                                ->paginate(14)
+                                ->withQueryString(),
+                'indicator' => 'all of the lastest posts'
             ]);
         } else {
+
             return view('news.posts.index', [
-                'categories' => Category::with(['posts' => function ($query) {
-                    $query->where('status', Constants::PUBLISHED)
-                        ->where('published_at', '<=', now())
-                        ->orderBy('published_at', 'desc');
-                }])
-                    ->where('status', Constants::ACTIVE)
-                    ->take(4) // The UI can not take more than 4
-                    ->get(),
+                'categories' => Category::with(['posts' => fn ($query) => $query->where('status', Constants::PUBLISHED)
+                                                                                ->where('published_at', '<=', now())
+                                                                                ->orderByDesc('published_at')
+                                                                                ->take(5)])
+                                        ->where('status', Constants::ACTIVE)
+                                        ->whereNull('parent_id')
+                                        ->get(),
                 'popularPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                    ->where('status', Constants::PUBLISHED)
-                    ->where('featured', Constants::NOT_FEATURED)
-                    ->where('published_at', '<=', now())
-                    ->orderBy('view_count', 'desc')->get(),
+                                        ->where('status', Constants::PUBLISHED)
+                                        ->where('featured', Constants::NOT_FEATURED)
+                                        ->where('published_at', '<=', now())
+                                        ->orderBy('view_count', 'desc')
+                                        ->get(),
                 'lastestPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                    ->where('status', Constants::PUBLISHED)
-                    ->where('featured', Constants::NOT_FEATURED)
-                    ->where('published_at', '<=', now())
-                    ->orderBy('published_at', 'desc')->get(),
+                                        ->where('status', Constants::PUBLISHED)
+                                        ->where('featured', Constants::NOT_FEATURED)
+                                        ->where('published_at', '<=', now())
+                                        ->orderBy('published_at', 'desc')
+                                        ->get(),
                 'featuredPosts' =>  Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                    ->where('status', Constants::PUBLISHED)
-                    ->where('featured', Constants::FEATURED)
-                    ->where('published_at', '<=', now())
-                    ->orderBy('published_at', 'desc')->get(),
+                                        ->where('status', Constants::PUBLISHED)
+                                        ->where('featured', Constants::FEATURED)
+                                        ->where('published_at', '<=', now())
+                                        ->orderBy('published_at', 'desc')
+                                        ->get(),
             ]);
         }
     }
