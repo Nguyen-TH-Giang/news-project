@@ -18,13 +18,13 @@
                             <div class="card top-selling overflow-auto">
                                 <div class="card-body">
                                     <div class="card-title row g-3">
-                                        <div class="col-md-8"><a href="{{ route('admin.banners.create') }}" class="btn btn-warning">Add new banner</a></div>
+                                        <div class="col-md-8"><a href="{{ route('admin.banners.create') }}" class="btn btn-primary">Add new banner</a></div>
                                         <div class="col-md-4">
                                             <form class="row g-3" method="GET" action="#">
                                                 <div class="col-md-12 d-flex flex-row">
                                                   <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
-                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill"><i class="bi bi-search"></i></button>
-                                                  <a href="{{ route('admin.banners.index') }}" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-clockwise"></i></a>
+                                                  <button type="submit" title="Search" class="btn btn-primary rounded-pill ms-1"><i class="bi bi-search"></i></button>
+                                                  <a href="{{ route('admin.banners.index') }}" class="btn btn-danger rounded-pill ms-1"><i class="bi bi-arrow-clockwise"></i></a>
                                                 </div>
                                             </form>
                                         </div>
@@ -35,8 +35,8 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col" class="w-5p">ID</th>
-                                                <th scope="col">Title</th>
                                                 <th scope="col" class="w-10p">Image</th>
+                                                <th scope="col">Title</th>
                                                 <th scope="col" class="w-10p">Type</th>
                                                 <th scope="col" class="w-10p">Status</th>
                                                 <th scope="col" class="w-10p">Action</th>
@@ -45,23 +45,23 @@
                                         <tbody>
                                             @foreach ($banners as $banner)
                                                 <tr>
-                                                    <th scope="row">{{ $banner->id }}</th>
-                                                    <td>
-                                                        {{ $banner->title }}
-                                                    </td>
-                                                    <th scope="row">
+                                                    <td scope="row"><strong>{{ $banner->id }}</strong></td>
+                                                    <td scope="row">
                                                         @php
                                                             $path = public_path('/storage/' . $banner->image_url);
                                                             $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
                                                         @endphp
                                                         <img src="{{ $imageSrc }}">
-                                                    </th>
+                                                    </td>
+                                                    <td>
+                                                        {{ $banner->title }}
+                                                    </td>
                                                     <td>{{ $banner->type }}</td>
                                                     <td>{{ $banner->status }}</td>
                                                     <td>
-                                                        <a class="btn btn-success" href="/admin/banners/{{ $banner->id }}/edit">
+                                                        <a class="btn btn-primary" href="/admin/banners/{{ $banner->id }}/edit">
                                                             <i class="bi bi-pencil-square"></i></a>
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bannerModal-{{ $banner->id }}">
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#bannerModal-{{ $banner->id }}">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
 
@@ -78,7 +78,7 @@
                                                                         <form method="POST" action="/admin/banners/{{ $banner->id }}">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                            <button type="submit" class="btn btn-primary">Delete</button>
+                                                                            <button type="submit" class="btn btn-danger">Delete</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>

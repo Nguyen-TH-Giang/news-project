@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BannerAdsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\NewsletterController;
@@ -24,12 +26,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-
-/** Test view */
-Route::get('/test', function () {
-    return view('news.contact');
-});
-/** End test view */
+Route::get('category', [CategoryController::class, 'index']);
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactController::class, 'store']);
+Route::post('newsletter', [NewsletterController::class, 'store']);
 
 require __DIR__.'/auth.php';
 
@@ -43,10 +43,10 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('admin/banners/{bannerAds}', [BannerAdsController::class, 'update']);
     Route::delete('admin/banners/{bannerAds}', [BannerAdsController::class, 'destroy']);
 
-    Route::get('admin/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
-    Route::get('admin/contacts/{contact}/edit', [ContactController::class, 'edit']);
-    Route::patch('admin/contacts/{contact}', [ContactController::class, 'update']);
-    Route::delete('admin/contacts/{contact}', [ContactController::class, 'destroy']);
+    Route::get('admin/contacts', [ContactsController::class, 'index'])->name('admin.contacts.index');
+    Route::get('admin/contacts/{contact}/edit', [ContactsController::class, 'edit']);
+    Route::patch('admin/contacts/{contact}', [ContactsController::class, 'update']);
+    Route::delete('admin/contacts/{contact}', [ContactsController::class, 'destroy']);
 
     Route::get('admin/tags', [TagController::class, 'index'])->name('admin.tags.index');
     Route::get('admin/tags/create', [TagController::class, 'create'])->name('admin.tags.create');

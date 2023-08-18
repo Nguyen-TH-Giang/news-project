@@ -13,13 +13,17 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form action="/admin/categories" method="POST">
+                        <form action="/admin/categories" method="POST" enctype="multipart/form-data" id="categoryCreateForm" novalidate>
                             @csrf
 
                             <x-admin.form.input name="title" type="text" label="name" :value="old('title')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
                             <x-admin.form.input name="slug" type="text" label="slug" :value="old('slug')">
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
+
+                            <x-admin.form.input name="image_url" type="file" label="Image">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
@@ -33,8 +37,8 @@
                                             <option value="{{ $category->id }}" @if(old('parent_id') == $category->id) selected @endif>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
+                                    <x-admin.form.error field="parent_id" />
                                 </div>
-                                <x-admin.form.error name="parent_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order')"/>

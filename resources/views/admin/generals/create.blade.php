@@ -15,7 +15,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/generals" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/generals" enctype="multipart/form-data" id="generalsCreateForm">
                             @csrf
 
                             <x-admin.form.input name="contact_name" type="text" label="contact name" :value="old('contact_name')">
@@ -34,11 +34,12 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="description" type="text" label="description" :value="old('description')">
+                            <x-admin.form.textarea name="description" id="editor" label="description">
                                 <x-admin.required-icon />
-                            </x-admin.form.input>
+                                <x-slot name="content">{{ old('description') }}</x-slot>
+                            </x-admin.form.textarea>
 
-                            <x-admin.form.input name="logo" type="file" label="logo (32x32)" >
+                            <x-admin.form.input name="logo" type="file" label="Favicon (32x32)" >
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
@@ -49,7 +50,7 @@
                             <x-admin.form.input name="youtube_link" type="text" label="youtube link" :value="old('youtube_link')"/>
                             <x-admin.form.input name="vimeo_link" type="text" label="vimeo link" :value="old('vimeo_link')"/>
 
-                            <x-admin.form.button route="{{ route('dashboard') }}">Edit</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('dashboard') }}">Create</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

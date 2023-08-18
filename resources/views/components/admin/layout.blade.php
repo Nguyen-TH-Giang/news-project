@@ -6,8 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Admin</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="/backend/img/favicon.png" rel="icon">
@@ -15,34 +13,23 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="/backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/backend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/backend/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="/backend/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="/backend/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/backend/vendor/simple-datatables/style.css" rel="stylesheet">
+    {{-- <link href="/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/quill/quill.snow.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/quill/quill.bubble.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/remixicon/remixicon.css" rel="stylesheet"> --}}
+    {{-- <link href="/backend/vendor/simple-datatables/style.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <!-- Or for RTL support -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" /> --}}
 
     <!-- Template Main CSS File -->
     <link href="/backend/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin - v2.5.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-
-    <style>
-        .ck-editor__editable_inline {
-            min-height: 600px;
-        }
-    </style>
 </head>
 
 <body>
@@ -53,29 +40,13 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="/admin" class="logo d-flex align-items-center">
                 <img src="/backend/img/logo.png" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <span class="d-none d-lg-block">Digital Magazine</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
-
-                <!-- Don't put this search on dashboard -->
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="javascript:void(0)">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
-
-
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)" data-bs-toggle="dropdown">
@@ -87,13 +58,9 @@
                             <h6>{{ auth()->user()->name }}</h6>
                             <span>{{ auth()->user()->email }}</span>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
 
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><hr class="dropdown-divider"></li>
 
                         <li>
                             <a id="sign-out-link" class="dropdown-item d-flex align-items-center" href="javascript:void(0)">
@@ -106,7 +73,6 @@
                             @csrf
                             <button type="submit">Log Out</button>
                         </form>
-
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
 
@@ -117,7 +83,6 @@
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
@@ -179,7 +144,6 @@
             </li><!-- End Blank Page Nav -->
 
         </ul>
-
     </aside><!-- End Sidebar-->
 
     {{ $slot }}
@@ -192,41 +156,34 @@
     @endif
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </footer><!-- End Footer -->
+    <footer id="footer" class="footer"> <div class="copyright"><strong><span>Digital Magazine</span></strong></div></footer>
+    <!-- End Footer -->
 
-    <a href="javascript:void(0)" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
 
     <!-- Vendor JS Files -->
-    <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script>
+    {{-- <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script> --}}
     <script src="/backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/backend/vendor/chart.js/chart.umd.js"></script>
-    <script src="/backend/vendor/echarts/echarts.min.js"></script>
-    <script src="/backend/vendor/quill/quill.min.js"></script>
-    <script src="/backend/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="/backend/vendor/tinymce/tinymce.min.js"></script>
-    <script src="/backend/vendor/php-email-form/validate.js"></script>
+    {{-- <script src="/backend/vendor/chart.js/chart.umd.js"></script> --}}
+    {{-- <script src="/backend/vendor/echarts/echarts.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/quill/quill.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/simple-datatables/simple-datatables.js"></script> --}}
+    {{-- <script src="/backend/vendor/tinymce/tinymce.min.js"></script> --}}
+    {{-- <script src="/backend/vendor/php-email-form/validate.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/additional-methods.js"></script>
+    <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
+
+    <!-- JS Interaction File -->
+    <script src="/backend/js/select2Interactions.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/backend/js/triggerValidation.js"></script>
 
     <!-- Template Main JS File -->
     <script src="/backend/js/main.js"></script>
-
-    <!-- CKEditor -->
-    <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
-
-    <script src="/assets/vendor/jquery/dist/jquery.js"></script>
-
-    <script src="/js/main.js"></script>
 </body>
 
 </html>

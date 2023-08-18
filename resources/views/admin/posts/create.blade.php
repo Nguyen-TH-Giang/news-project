@@ -13,7 +13,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form action="/admin/posts" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/posts" method="POST" enctype="multipart/form-data" id="postCreateForm" novalidate>
                             @csrf
                             <x-admin.form.input name="title" type="text" label="title" :value="old('title')">
                                 <x-admin.required-icon />
@@ -35,16 +35,17 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <x-admin.form.error name="category_id" />
+                                <x-admin.form.error field="category_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.field>
                                 <x-admin.form.label label="tags"/>
                                 <div class="col-sm-10">
-                                    <select class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
+                                    <select id="multiple-select-field" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
                                         <option value="{{ Constants::EMPTY_VALUE }}" @if(in_array(Constants::EMPTY_VALUE, old('tag_ids', []))) selected @endif>
-                                            Remove all tags
+                                        Remove all tags
                                         </option>
+
                                         @foreach ($tags as $tag)
                                             <option value="{{ $tag->id }}" @if(in_array($tag->id, old('tag_ids', []))) selected @endif>
                                                 {{ $tag->name }}
@@ -52,7 +53,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <x-admin.form.error name="tag_ids" />
+                                <x-admin.form.error field="tag_ids" />
                             </x-admin.form.field>
 
                             <x-admin.form.input name="thumbnail" type="file" label="thumbnail">
@@ -73,7 +74,7 @@
                                         <label class="form-check-label" for="gridRadios2">Published</label>
                                     </div>
                                 </div>
-                                <x-admin.form.error name="status" />
+                                <x-admin.form.error field="status" />
                             </fieldset>
 
                             <x-admin.form.input name="date" type="date" label="Published date" :value="old('date')">
@@ -82,6 +83,8 @@
                             <x-admin.form.input name="time" type="time" label="Time" :step="1" :value="old('time')">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
+                            <x-admin.form.checkbox name="featured" legend="featured" :checked="old('featured') == Constants::FEATURED" />
+
                             <x-admin.form.checkbox name="trending" legend="trending" :checked="old('trending') == Constants::TRENDY" />
                             <x-admin.form.input name="description" type="text" label="description" :value="old('description')">
                                 <x-admin.required-icon />

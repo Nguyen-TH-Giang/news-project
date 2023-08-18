@@ -15,7 +15,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- General Form Elements -->
-                        <form method="POST" action="/admin/tags/{{ $tag->id }}">
+                        <form method="POST" action="/admin/tags/{{ $tag->id }}" id="tagEditForm" novalidate>
                             @csrf
                             @method('PATCH')
 
@@ -25,7 +25,7 @@
 
                             <x-admin.form.input name="sort_order" type="text" label="sort order" :value="old('sort_order', $tag->sort_order)"/>
 
-                            <x-admin.form.button route="{{ route('admin.tags.index') }}">Edit</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.tags.index') }}">Update</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>

@@ -11,9 +11,6 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
         <div class="card mb-3">
             <div class="card-body">
 
@@ -22,27 +19,32 @@
                     <p class="text-center small">Enter your email & password to login</p>
                 </div>
 
-                <form class="row g-3" method="POST" action="{{ route('login') }}">
+                <form class="row g-3" method="POST" action="{{ route('login') }}" id="loginForm" novalidate>
                     @csrf
 
                     <div class="col-12">
-                        <x-label for="email" :value="__('Email')" />
-
+                        <x-label :value="__('Email')" />
                         <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" name="email" class="form-control" id="email" value="{{ old('email') }}">
+                            <input type="text" name="email" class="form-control"  value="{{ old('email') }}">
+                            <div class="invalid-feedback" id="email"></div>
+                            <x-admin.form.error field="email" />
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <x-label for="password" :value="__('Password')" />
-                        <input type="password" name="password" class="form-control" id="password">
+                        <x-label :value="__('Password')" />
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+                            <div class="invalid-feedback" id="password"></div>
+                            <x-admin.form.error field="password" />
+                        </div>
                     </div>
 
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="remember_me">
-                            <label class="form-check-label" for="remember_me">{{ __('Remember me') }}</label>
+                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">{{ __('Remember me') }}</label>
                         </div>
                     </div>
 

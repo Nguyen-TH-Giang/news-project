@@ -8,9 +8,6 @@
             </div><!-- End Logo -->
         </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
         <div class="card mb-3">
             <div class="card-body">
 
@@ -18,35 +15,41 @@
                     <h5 class="card-title text-center pb-0 fs-4">Reset password</h5>
                 </div>
 
-                <form class="row g-3 needs-validation" method="POST" action="{{ route('password.update') }}" novalidate>
+                <form class="row g-3" method="POST" action="{{ route('password.update') }}" id="resetForm" novalidate>
                     @csrf
 
                     <!-- Password Reset Token -->
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                     <!-- Email Address -->
-                    <div class="col-12">
-                        <x-label for="email" :value="__('Email')" />
-
-                        <div class="input-group has-validation">
+                    <div class="col-12 field">
+                        <x-label :value="__('Email')" />
+                        <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-
-                            <input type="text" name="email" class="form-control" id="email" value="{{ old('email', $request->email) }}" required>
+                            <input type="text" name="email" class="form-control" value="{{ old('email', $request->email) }}">
+                            <div class="invalid-feedback" id="email"></div>
+                            <x-admin.form.error field="email" />
                         </div>
                     </div>
 
                     <!-- Password -->
-                    <div class="col-12">
-                        <x-label for="password" :value="__('Password')" />
-
-                        <input type="password" name="password" class="form-control" id="password" required>
+                    <div class="col-12 field">
+                        <x-label :value="__('Password')" />
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+                            <div class="invalid-feedback" id="password"></div>
+                            <x-admin.form.error field="password" />
+                        </div>
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="col-12">
-                        <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" required>
+                    <div class="col-12 field">
+                        <x-label :value="__('Confirm Password')" />
+                        <div class="input-group">
+                            <input type="password" name="password_confirmation" class="form-control">
+                            <div class="invalid-feedback" id="password_confirmation"></div>
+                            <x-admin.form.error field="password_confirmation" />
+                        </div>
                     </div>
 
                     <div class="col-12">

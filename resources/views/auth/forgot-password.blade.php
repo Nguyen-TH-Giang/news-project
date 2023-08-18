@@ -14,21 +14,18 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
         <div class="card mb-3 pt-3 mt-3">
             <div class="card-body">
-                <form class="row g-3 needs-validation" method="POST" action="{{ route('password.email') }}" novalidate>
+                <form class="row g-3" method="POST" action="{{ route('password.email') }}" id="forgotForm" novalidate>
                     @csrf
                     <div class="col-12">
-                        <x-label for="email" :value="__('Email')" />
+                        <x-label :value="__('Email')" />
 
-                        <div class="input-group has-validation">
+                        <div class="input-group">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" name="email" class="form-control" id="email"
-                                value="{{ old('email') }}" required>
-                            <div class="invalid-feedback">Please enter your username.</div>
+                            <input type="text" name="email" class="form-control" value="{{ old('email') }}">
+                            <div class="invalid-feedback" id="email"></div>
+                            <x-admin.form.error field="email" />
                         </div>
                     </div>
 

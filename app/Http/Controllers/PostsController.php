@@ -33,6 +33,12 @@ class PostsController extends Controller
             } else if ($post['trending'] == Constants::TRENDY) {
                 $post['trending'] = 'Yes';
             }
+
+            if ($post['featured'] == Constants::NOT_FEATURED) {
+                $post['featured'] = 'No';
+            } else if ($post['featured'] == Constants::FEATURED) {
+                $post['featured'] = 'Yes';
+            }
         }
 
         return view('admin.posts.index', [
@@ -134,7 +140,8 @@ class PostsController extends Controller
             'status' => ['required', 'in:' . Constants::DRAFT . ',' . Constants::PUBLISHED],
             'date' => ['required', 'date'],
             'time' => ['required', 'date_format:' . Constants::TIME_FORMAT],
-            'trending' => ['in:' . Constants::ACTIVE . ',' . Constants::INACTIVE],
+            'featured' => ['in:' . Constants::NOT_FEATURED . ',' . Constants::FEATURED],
+            'trending' => ['in:' . Constants::NOT_TRENDY . ',' . Constants::TRENDY],
             'description' => 'required',
             'content' => 'required',
         ], ['slug.unique' => 'The provided slug is already in use.']);

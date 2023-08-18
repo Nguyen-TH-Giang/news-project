@@ -13,7 +13,7 @@
 
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><a class="btn btn-warning" href="{{ route('admin.generals.create') }}">Add new generals information</a></h5>
+                    <h5 class="card-title"><a class="btn btn-primary" href="{{ route('admin.generals.create') }}">Add new generals information</a></h5>
                     <p>There is no information about you, click the button above to create a new one.</p>
                   </div>
                 </div>

@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="/admin/banners/{{ $banner->id }}" class="mt-4">
+                            <form method="POST" action="/admin/banners/{{ $banner->id }}" class="mt-4" enctype="multipart/form-data" id="bannerEditForm" novalidate>
                                 @csrf
                                 @method('PATCH')
 
@@ -23,9 +23,10 @@
 
                                 <div class="d-flex flex-column">
                                     <div>
-                                        <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
+                                        <x-admin.form.input name="image_url" type="file" label="image"/>
                                     </div>
-                                    <div class="align-self-center">
+                                    <div class="mb-2">
+                                        <label class="col-sm-2 col-form-label"></label>
                                         @php
                                             $path = public_path('/storage/' . $banner->image_url);
                                             $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $banner->image_url) : Constants::BANNER_PLACEHOLDER;
@@ -41,16 +42,18 @@
                                     <div class="col-sm-10">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="{{ Constants::BANNER_TOP }}" @if(old('type', $banner->type) == Constants::BANNER_TOP) checked @endif>
-                                            <label class="form-check-label" for="gridRadios1">Top banner 700x70</label>
+                                            <label class="form-check-label" for="gridRadios1">Top banner (700x70)</label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_SIDE }}" @if(old('type', $banner->type) == Constants::BANNER_SIDE) checked @endif>
-                                            <label class="form-check-label" for="gridRadios2">Side banner 500x280</label>
+                                            <label class="form-check-label" for="gridRadios2">Side banner (500x280)</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="{{ Constants::BANNER_CENTER }}" @if(old('type', $banner->type) == Constants::BANNER_CENTER) checked @endif>
-                                            <label class="form-check-label" for="gridRadios2">Center banner 700x70</label>
+                                            <input class="form-check-input" type="radio" name="type" id="gridRadios3" value="{{ Constants::BANNER_CENTER }}" @if(old('type', $banner->type) == Constants::BANNER_CENTER) checked @endif>
+                                            <label class="form-check-label" for="gridRadios3">Center banner (700x70)</label>
                                         </div>
+                                        <div class="invalid-feedback" id="type"></div>
+                                        <x-admin.form.error field="type" />
                                     </div>
                                 </fieldset>
 
@@ -64,8 +67,7 @@
 
                                 <x-admin.form.checkbox name="status" legend="active" :value="old('status', $banner->status)" :checked="old('status', $banner->status) == Constants::ACTIVE" />
 
-                                <x-admin.form.button route="{{ route('admin.banners.index') }}">Edit</x-admin.form.button>
-
+                                <x-admin.form.button route="{{ route('admin.banners.index') }}">Update</x-admin.form.button>
                             </form>
                         </div>
                     </div>

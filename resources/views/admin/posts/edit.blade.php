@@ -16,7 +16,7 @@
                     <div class="row">
 
                         <!-- General Form Elements -->
-                        <form action="/admin/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data" id="postEditForm" novalidate>
                             @csrf
                             @method('PATCH')
 
@@ -24,7 +24,7 @@
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
-                            <x-admin.form.input name="slug" type="text" label="slug" :value="old('title', $post->slug)">
+                            <x-admin.form.input name="slug" type="text" label="slug" :value="old('slug', $post->slug)">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
 
@@ -39,14 +39,14 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <x-admin.form.error field="category_id" />
                                 </div>
-                                <x-admin.form.error name="category_id" />
                             </x-admin.form.field>
 
                             <x-admin.form.field>
                                 <x-admin.form.label label="tags"/>
                                 <div class="col-sm-10">
-                                    <select id="mulSelect" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
+                                    <select id="multiple-select-field" class="form-select" multiple aria-label="multiple select example" name="tag_ids[]">
                                         <option value="{{ Constants::EMPTY_VALUE }}" @if(in_array(Constants::EMPTY_VALUE, old('tag_ids', []))) selected @endif>
                                             Remove all tags
                                         </option>
@@ -56,6 +56,7 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <x-admin.form.error field="tag_ids[]" />
                                 </div>
                             </x-admin.form.field>
 
@@ -63,7 +64,8 @@
                                 <div>
                                     <x-admin.form.input name="thumbnail" type="file" label="thumbnail" />
                                 </div>
-                                <div class="align-self-center">
+                                <div class="mb-2">
+                                    <label class="col-sm-2 col-form-label"></label>
                                     @php
                                         $path = public_path('/storage/' . $post->thumbnail);
                                         $imageSrc = File::exists($path) && !is_dir($path) ? asset('storage/' . $post->thumbnail) : Constants::POST_PLACEHOLDER;
@@ -94,12 +96,16 @@
                             <x-admin.form.input name="time" type="time" label="Time" :value="old('time', $post->time)" :step="1">
                                 <x-admin.required-icon />
                             </x-admin.form.input>
+                            <x-admin.form.checkbox name="featured" legend="featured" :value="old('featured', $post->featured)" :checked="old('featured', $post->featured) == Constants::FEATURED"/>
                             <x-admin.form.checkbox name="trending" legend="trending" :value="old('status', $post->trending)" :checked="old('trending', $post->trending) == Constants::TRENDY"/>
-                            <x-admin.form.input name="description" type="text" label="description" :value="old('description', $post->description)"/>
+                            <x-admin.form.input name="description" type="text" label="description" :value="old('description', $post->description)">
+                                <x-admin.required-icon />
+                            </x-admin.form.input>
                             <x-admin.form.textarea name="content" id="editor" label="content">
+                                <x-admin.required-icon />
                                 <x-slot name="content">{{ old('content', $post->content) }}</x-slot>
                             </x-admin.form.textarea>
-                            <x-admin.form.button route="{{ route('admin.posts.index') }}">Edit</x-admin.form.button>
+                            <x-admin.form.button route="{{ route('admin.posts.index') }}">Update</x-admin.form.button>
 
                         </form><!-- End General Form Elements -->
                     </div>
