@@ -36,7 +36,7 @@
                     <div class="col-12 field">
                         <x-label :value="__('Password')" />
                         <div class="input-group">
-                            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+                            <input type="password" id="input_password" name="password" class="form-control" value="{{ old('password') }}">
                             <div class="invalid-feedback" id="password"></div>
                             <x-admin.form.error field="password" />
                         </div>

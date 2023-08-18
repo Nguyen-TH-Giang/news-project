@@ -161,7 +161,7 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery/dist/jquery.js"></script>
 
     <!-- Vendor JS Files -->
     {{-- <script src="/backend/vendor/apexcharts/apexcharts.min.js"></script> --}}
@@ -173,17 +173,17 @@
     {{-- <script src="/backend/vendor/tinymce/tinymce.min.js"></script> --}}
     {{-- <script src="/backend/vendor/php-email-form/validate.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/assets/vendor/jquery-validation/dist/jquery.validate.js"></script>
     <script src="/assets/vendor/jquery-validation/dist/additional-methods.js"></script>
     <script src="/assets/vendor/ckeditor5/ckeditor.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/backend/js/main.js"></script>
 
     <!-- JS Interaction File -->
     <script src="/backend/js/select2Interactions.js"></script>
     <script src="/js/main.js"></script>
     <script src="/backend/js/triggerValidation.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="/backend/js/main.js"></script>
 </body>
 
 </html>
