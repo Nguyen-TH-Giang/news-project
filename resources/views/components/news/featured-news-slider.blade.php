@@ -5,7 +5,7 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
             <h3 class="m-0">Featured</h3>
-            <a class="text-secondary font-weight-medium text-decoration-none" href="javascript:void(0)">View All</a>
+            <a class="text-secondary font-weight-medium text-decoration-none" href="{{ request()->fullUrlWithQuery(['featured' => true]) }}">View All</a>
         </div>
         @if ($featuredPosts->count() > 0)
             <div class="owl-carousel owl-carousel-2 carousel-item-4 position-relative">
