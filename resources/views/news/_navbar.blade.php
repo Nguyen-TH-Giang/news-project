@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <x-news.category-navbar />
 
-            <form action="#" method="GET">
+            <form action="{{ route('index') }}" method="GET">
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword" name="search" value="{{ request('search') }}">
                     <div class="input-group-append">

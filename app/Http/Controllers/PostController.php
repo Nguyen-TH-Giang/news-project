@@ -12,7 +12,6 @@ class PostController extends Controller
 {
     public function index()
     {
-
         if (request()->hasAny(['category', 'tag', 'search'])) {
             // Translate query string into appropriate name
             $parameters = ['category', 'tag', 'search'];
@@ -43,10 +42,7 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                ->where('status', Constants::PUBLISHED)
-                                ->where('featured', Constants::NOT_FEATURED)
-                                ->where('published_at', '<=', now())
-                                ->orderBy('view_count', 'desc')
+                                ->popular()
                                 ->paginate(14)
                                 ->withQueryString(),
                 'indicator' => 'all of the popular posts'
@@ -55,13 +51,19 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                ->where('status', Constants::PUBLISHED)
-                                ->where('featured', Constants::NOT_FEATURED)
-                                ->where('published_at', '<=', now())
-                                ->orderBy('published_at', 'desc')
+                                ->latest()
                                 ->paginate(14)
                                 ->withQueryString(),
                 'indicator' => 'all of the lastest posts'
+            ]);
+        } else if (request()->has(['featured'])) {
+
+            return view('news.posts.search', [
+                'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
+                                ->featured()
+                                ->paginate(14)
+                                ->withQueryString(),
+                'indicator' => 'all of the featured posts'
             ]);
         } else {
 
@@ -74,22 +76,13 @@ class PostController extends Controller
                                         ->whereNull('parent_id')
                                         ->get(),
                 'popularPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->where('status', Constants::PUBLISHED)
-                                        ->where('featured', Constants::NOT_FEATURED)
-                                        ->where('published_at', '<=', now())
-                                        ->orderBy('view_count', 'desc')
+                                        ->popular()
                                         ->get(),
                 'lastestPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->where('status', Constants::PUBLISHED)
-                                        ->where('featured', Constants::NOT_FEATURED)
-                                        ->where('published_at', '<=', now())
-                                        ->orderBy('published_at', 'desc')
+                                        ->latest()
                                         ->get(),
                 'featuredPosts' =>  Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->where('status', Constants::PUBLISHED)
-                                        ->where('featured', Constants::FEATURED)
-                                        ->where('published_at', '<=', now())
-                                        ->orderBy('published_at', 'desc')
+                                        ->featured()
                                         ->get(),
             ]);
         }
@@ -110,13 +103,10 @@ class PostController extends Controller
 
     private function getDatabaseValue($param, $paramValue)
     {
-        switch ($param) {
-            case 'search':
-                return Post::where('slug', $paramValue)->value('title');
-            case 'category':
-                return Category::where('slug', $paramValue)->value('name');
-            default:
-                return $paramValue;
+        if ($param == 'category') {
+            return Category::where('slug', $paramValue)->value('name');
+        } else {
+            return $paramValue;
         }
     }
 }
