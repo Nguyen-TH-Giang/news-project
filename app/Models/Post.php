@@ -35,7 +35,7 @@ class Post extends Model
         });
     }
 
-    public function scopePopular($query)
+    public function scopePopularPost($query)
     {
         $query->where('status', Constants::PUBLISHED)
                 ->where('featured', Constants::NOT_FEATURED)
@@ -43,7 +43,7 @@ class Post extends Model
                 ->orderBy('view_count', 'desc');
     }
 
-    public function scopeLatest($query)
+    public function scopeLatestPost($query)
     {
         $query->where('status', Constants::PUBLISHED)
                 ->where('featured', Constants::NOT_FEATURED)
@@ -51,7 +51,7 @@ class Post extends Model
                 ->orderBy('published_at', 'desc');
     }
 
-    public function scopeFeatured($query)
+    public function scopeFeaturedPost($query)
     {
         $query->where('status', Constants::PUBLISHED)
                 ->where('featured', Constants::FEATURED)

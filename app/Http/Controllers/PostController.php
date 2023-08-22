@@ -42,7 +42,7 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                ->popular()
+                                ->popularPost()
                                 ->paginate(14)
                                 ->withQueryString(),
                 'indicator' => 'all of the popular posts'
@@ -51,7 +51,7 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                ->latest()
+                                ->latestPost()
                                 ->paginate(14)
                                 ->withQueryString(),
                 'indicator' => 'all of the lastest posts'
@@ -60,7 +60,7 @@ class PostController extends Controller
 
             return view('news.posts.search', [
                 'posts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                ->featured()
+                                ->featuredPost()
                                 ->paginate(14)
                                 ->withQueryString(),
                 'indicator' => 'all of the featured posts'
@@ -76,13 +76,13 @@ class PostController extends Controller
                                         ->whereNull('parent_id')
                                         ->get(),
                 'popularPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->popular()
+                                        ->popularPost()
                                         ->get(),
                 'lastestPosts' => Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->latest()
+                                        ->latestPost()
                                         ->get(),
                 'featuredPosts' =>  Post::with(['category' => fn ($query) => $query->where('status', Constants::ACTIVE)])
-                                        ->featured()
+                                        ->featuredPost()
                                         ->get(),
             ]);
         }
@@ -90,6 +90,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $post->increment('view_count');
+        $post->save();
+
         $tagIds = explode(',', $post->tag_ids);
         $tagNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
 
