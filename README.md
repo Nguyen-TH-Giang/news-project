@@ -1,3 +1,6 @@
+## News site with CRUD app for user control
+This Laravel-powered project encompasses an extensive online news portal, delivering real-time articles and updates spanning diverse subjects, coupled with a distinct CRUD application designed to efficiently administer user accounts, permissions, and content management across multiple organizational sectors.
+
 ## The Project Installation Instruction
 Every package should be stored in the public/assets/vendor folder. In this project: the package is stored in the folder with the corresponding name, for example: everything inside the jquery folder after installation should also be inside the public/assets/vendor/jquery folder.
 
